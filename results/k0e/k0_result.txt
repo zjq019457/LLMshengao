@@ -1,0 +1,105 @@
+parsed reviews: 791/966
+
+=== deepreviewer-7b:fast ===
+D  detection F: 0.05   false-positive N: 0.00   (n_detected=1)   regex F/N: 0.05/0.00   judge-regex agreement on F: 1.00
+W  among detected: labelled fatal 0.00   mean overall 3.44 vs N same papers 3.33
+H1 P(overall>=3.22 | detected): 1.00 [1.00,1.00]
+H1 overall F-N: -0.13 [-0.23,-0.02]
+   (no R versions: H3 skipped)
+
+=== deepreviewer-7b:std ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)   regex F/N: 0.00/0.00   judge-regex agreement on F: 1.00
+H1 P(overall>=3.22 | detected): nan [nan,nan]
+H1 overall F-N: +0.02 [-0.15,+0.30]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)   regex F/N: 0.00/0.00   judge-regex agreement on F: 1.00
+H1 P(overall>=3.00 | detected): nan [nan,nan]
+H1 overall F-N: +0.07 [+0.00,+0.13]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:ais ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)   regex F/N: 0.00/0.00   judge-regex agreement on F: 1.00
+H1 P(overall>=3.22 | detected): nan [nan,nan]
+H1 overall F-N: +0.03 [-0.04,+0.11]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:ais+think ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)   regex F/N: 0.00/0.00   judge-regex agreement on F: 1.00
+H1 P(overall>=3.22 | detected): nan [nan,nan]
+H1 overall F-N: +0.04 [-0.04,+0.12]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+audit ===
+D  detection F: 0.97   false-positive N: 0.04   (n_detected=28)   regex F/N: 1.00/0.12   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 0.00   mean overall nan vs N same papers nan
+H1 P(overall>=3.00 | detected): 0.00 [0.00,0.00]
+H1 overall F-N: +nan [+nan,+nan]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+two ===
+D  detection F: 0.97   false-positive N: 0.00   (n_detected=28)   regex F/N: 1.00/0.15   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 0.14   mean overall 2.83 vs N same papers 3.27
+H1 P(overall>=3.22 | detected): 0.39 [0.30,0.50]
+H1 overall F-N: -0.42 [-0.52,-0.31]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+verify ===
+D  detection F: 0.90   false-positive N: 0.00   (n_detected=27)   regex F/N: 0.87/0.04   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 0.11   mean overall 2.70 vs N same papers 3.15
+H1 P(overall>=3.00 | detected): 0.70 [0.44,0.93]
+H1 overall F-N: -0.41 [-0.67,-0.17]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+verify+grule ===
+D  detection F: 0.90   false-positive N: 0.00   (n_detected=27)   regex F/N: 0.93/0.04   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 1.00   mean overall 1.56 vs N same papers 2.56
+H1 P(overall>=3.00 | detected): 0.00 [0.00,0.00]
+H1 overall F-N: -0.93 [-1.20,-0.60]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+verify+rule ===
+D  detection F: 0.97   false-positive N: 0.07   (n_detected=29)   regex F/N: 0.83/0.07   judge-regex agreement on F: 0.87
+W  among detected: labelled fatal 0.86   mean overall 1.34 vs N same papers 2.19
+H1 P(overall>=3.00 | detected): 0.00 [0.00,0.00]
+H1 overall F-N: -0.81 [-0.93,-0.71]
+   (no R versions: H3 skipped)
+
+=== qwen3-32b-awq:think+verify+s10 ===
+D  detection F: 0.87   false-positive N: 0.00   (n_detected=26)   regex F/N: 0.87/0.04   judge-regex agreement on F: 0.93
+W  among detected: labelled fatal 0.12   mean overall 3.12 vs N same papers 3.43
+H1 P(overall>=3.22 | detected): 0.73 [0.54,0.89]
+H1 overall F-N: -0.31 [-0.42,-0.20]
+   (no R versions: H3 skipped)
+
+=== qwen3-8b:think+audit ===
+D  detection F: 0.86   false-positive N: 0.00   (n_detected=25)   regex F/N: 0.93/0.07   judge-regex agreement on F: 0.86
+W  among detected: labelled fatal 0.00   mean overall nan vs N same papers nan
+H1 P(overall>=3.00 | detected): 0.00 [0.00,0.00]
+H1 overall F-N: +nan [+nan,+nan]
+   (no R versions: H3 skipped)
+
+=== qwen3-8b:think+two ===
+D  detection F: 0.90   false-positive N: 0.00   (n_detected=26)   regex F/N: 0.97/0.07   judge-regex agreement on F: 0.93
+W  among detected: labelled fatal 0.00   mean overall 3.27 vs N same papers 3.50
+H1 P(overall>=3.22 | detected): 0.96 [0.88,1.00]
+H1 overall F-N: -0.22 [-0.32,-0.11]
+   (no R versions: H3 skipped)
+
+=== qwen3-8b:think+verify ===
+D  detection F: 0.10   false-positive N: 0.00   (n_detected=3)   regex F/N: 0.13/0.00   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 0.33   mean overall 3.33 vs N same papers 3.67
+H1 P(overall>=3.00 | detected): 1.00 [1.00,1.00]
+H1 overall F-N: +0.22 [+0.07,+0.40]
+   (no R versions: H3 skipped)
+
+=== qwen3-8b:think+verify+grule ===
+D  detection F: 0.47   false-positive N: 0.00   (n_detected=14)   regex F/N: 0.43/0.00   judge-regex agreement on F: 0.97
+W  among detected: labelled fatal 0.71   mean overall 2.07 vs N same papers 2.88
+H1 P(overall>=3.00 | detected): 0.14 [0.00,0.36]
+H1 overall F-N: -0.44 [-0.73,-0.13]
+   (no R versions: H3 skipped)
+
+VERDICT {'deepreviewer-7b:fast': {'D': False, 'H1': None, 'H3': None}, 'deepreviewer-7b:std': {'D': False, 'H1': None, 'H3': None}, 'qwen3-32b-awq': {'D': False, 'H1': None, 'H3': None}, 'qwen3-32b-awq:ais': {'D': False, 'H1': None, 'H3': None}, 'qwen3-32b-awq:ais+think': {'D': False, 'H1': None, 'H3': None}, 'qwen3-32b-awq:think+audit': {'D': True, 'H1': False, 'H3': None}, 'qwen3-32b-awq:think+two': {'D': True, 'H1': True, 'H3': None}, 'qwen3-32b-awq:think+verify': {'D': True, 'H1': True, 'H3': None}, 'qwen3-32b-awq:think+verify+grule': {'D': True, 'H1': False, 'H3': None}, 'qwen3-32b-awq:think+verify+rule': {'D': True, 'H1': False, 'H3': None}, 'qwen3-32b-awq:think+verify+s10': {'D': True, 'H1': True, 'H3': None}, 'qwen3-8b:think+audit': {'D': True, 'H1': False, 'H3': None}, 'qwen3-8b:think+two': {'D': True, 'H1': True, 'H3': None}, 'qwen3-8b:think+verify': {'D': False, 'H1': None, 'H3': None}, 'qwen3-8b:think+verify+grule': {'D': True, 'H1': True, 'H3': None}}
+K0 PASS -> go to G1

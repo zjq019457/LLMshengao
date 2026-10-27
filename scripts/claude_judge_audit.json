@@ -1,0 +1,69 @@
+{
+ "claude_yes_ids": [
+  1,
+  2,
+  5,
+  7,
+  8,
+  11,
+  12,
+  13,
+  18,
+  20,
+  23,
+  26,
+  30,
+  32,
+  33,
+  36,
+  39,
+  40,
+  44
+ ],
+ "n": 46,
+ "agreement": 1.0,
+ "kappa": 1.0,
+ "by_stratum": {
+  "qwen3-32b-awq|F": [
+   5,
+   0,
+   0
+  ],
+  "qwen3-32b-awq:think+verify|F": [
+   10,
+   9,
+   9
+  ],
+  "qwen3-32b-awq:think+verify+rule|F": [
+   10,
+   10,
+   10
+  ],
+  "qwen3-32b-awq|N": [
+   3,
+   0,
+   0
+  ],
+  "qwen3-32b-awq:think+verify+rule|N": [
+   5,
+   0,
+   0
+  ],
+  "deepreviewer-7b:fast|N": [
+   3,
+   0,
+   0
+  ],
+  "deepreviewer-7b:fast|F": [
+   5,
+   0,
+   0
+  ],
+  "qwen3-32b-awq:think+verify|N": [
+   5,
+   0,
+   0
+  ]
+ },
+ "disagreements": []
+}

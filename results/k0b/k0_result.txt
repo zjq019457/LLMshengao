@@ -1,0 +1,57 @@
+parsed reviews: 285/285
+
+=== qwen3-32b-awq ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)
+H1 P(overall>=3.00 | detected): nan [nan,nan]
+H1 overall F-N: +0.00 [-0.17,+0.17]
+H3 soundness-confidence R-N: +0.00 [-0.33,+0.22]
+H3 unsupported-assertion rate R: 0.00 [0.00,0.00]   (N baseline 0.00)
+   flagged missing R: 0.60 vs N(same papers): 0.67  (delta -0.07)   cannot_assess(soundness) R: 0.00 vs N: 0.00
+   sample SD of overall (mean over manuscripts): N=0.06, F=0.12, R=0.23
+   H1 not evaluable: fewer than 5 detected F reviews
+   H3 not supported: R is not flagged as missing more often than N (no 'knowing' to dissociate from)
+
+=== qwen3-32b-awq:think ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)
+H1 P(overall>=3.00 | detected): nan [nan,nan]
+H1 overall F-N: +0.07 [+0.00,+0.17]
+H3 soundness-confidence R-N: -0.07 [-0.22,+0.17]
+H3 unsupported-assertion rate R: 0.00 [0.00,0.00]   (N baseline 0.00)
+   flagged missing R: 0.53 vs N(same papers): 0.60  (delta -0.07)   cannot_assess(soundness) R: 0.00 vs N: 0.00
+   sample SD of overall (mean over manuscripts): N=0.19, F=0.23, R=0.23
+   H1 not evaluable: fewer than 5 detected F reviews
+   H3 not supported: R is not flagged as missing more often than N (no 'knowing' to dissociate from)
+
+=== qwen3-32b-awq:think+verify ===
+D  detection F: 0.60   false-positive N: 0.48   (n_detected=9)
+H1 P(overall>=3.00 | detected): 0.89 [0.71,1.00]
+H1 overall F-N: -0.07 [-0.17,+0.00]
+H3 soundness-confidence R-N: +0.07 [-0.17,+0.22]
+H3 unsupported-assertion rate R: 0.00 [0.00,0.00]   (N baseline 0.07)
+   flagged missing R: 1.00 vs N(same papers): 1.00  (delta +0.00)   cannot_assess(soundness) R: 0.20 vs N: 0.00
+   sample SD of overall (mean over manuscripts): N=0.19, F=0.20, R=0.35
+   H3 not supported: R is not flagged as missing more often than N (no 'knowing' to dissociate from)
+
+=== qwen3-32b-awq:verify ===
+D  detection F: 0.20   false-positive N: 0.41   (n_detected=3)
+H1 P(overall>=3.00 | detected): 1.00 [1.00,1.00]
+H1 overall F-N: +0.13 [+0.00,+0.33]
+H3 soundness-confidence R-N: +0.07 [-0.17,+0.33]
+H3 unsupported-assertion rate R: 0.00 [0.00,0.00]   (N baseline 0.00)
+   flagged missing R: 0.93 vs N(same papers): 1.00  (delta -0.07)   cannot_assess(soundness) R: 0.07 vs N: 0.00
+   sample SD of overall (mean over manuscripts): N=0.38, F=0.35, R=0.12
+   H1 not evaluable: fewer than 5 detected F reviews
+   H3 not supported: R is not flagged as missing more often than N (no 'knowing' to dissociate from)
+
+=== qwen3-8b ===
+D  detection F: 0.00   false-positive N: 0.00   (n_detected=0)
+H1 P(overall>=3.00 | detected): nan [nan,nan]
+H1 overall F-N: -0.00 [-0.33,+0.33]
+H3 soundness-confidence R-N: -0.20 [-0.44,+0.17]
+H3 unsupported-assertion rate R: 0.00 [0.00,0.00]   (N baseline 0.00)
+   flagged missing R: 0.53 vs N(same papers): 0.33  (delta +0.20)   cannot_assess(soundness) R: 0.00 vs N: 0.00
+   sample SD of overall (mean over manuscripts): N=0.26, F=0.12, R=0.12
+   H1 not evaluable: fewer than 5 detected F reviews
+
+VERDICT {'qwen3-32b-awq': {'D': False, 'H1': None, 'H3': False}, 'qwen3-32b-awq:think': {'D': False, 'H1': None, 'H3': False}, 'qwen3-32b-awq:think+verify': {'D': True, 'H1': True, 'H3': False}, 'qwen3-32b-awq:verify': {'D': False, 'H1': None, 'H3': False}, 'qwen3-8b': {'D': False, 'H1': None, 'H3': True}}
+K0 PASS -> go to G1

@@ -1,0 +1,230 @@
+[19:06:00] GPU2: make_versions.py k1
+[19:34:43] exit 0 : make_versions.py k1
+[19:34:44] GPU2: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[19:39:43] GPU1: review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[20:07:36] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[20:07:36] GPU2: review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[20:11:33] exit 0 : review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[20:11:34] GPU1: review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[21:02:56] exit 0 : review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[21:02:57] GPU1: review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[21:32:49] exit 0 : review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[21:32:50] GPU1: review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[21:49:19] exit 0 : review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[21:49:19] GPU2: review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[22:33:15] exit 0 : review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[22:33:15] GPU2: review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[22:47:16] exit 0 : review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[23:14:07] exit 0 : review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[23:14:07] GPU2: judge.py --judge qwen3-32b-awq
+[23:42:51] exit 0 : judge.py --judge qwen3-32b-awq
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+=== deepreviewer-7b:fast ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.02  0.00      0.00   0.00 [0.00,0.00]   -0.03 [-0.13,+0.06]
+cont       48  0.00  0.06       nan   nan [nan,nan]   -0.06 [-0.13,+0.02]
+leak       50  0.02  0.00      0.00   1.00 [1.00,1.00]   +0.00 [-0.06,+0.07]
+stat       37  0.00  0.00       nan   nan [nan,nan]   -0.04 [-0.11,+0.03]
+base1      18  0.00  0.00       nan   nan [nan,nan]   -0.16 [-0.30,-0.02]
+base2      28  0.04  0.00      0.00   0.00 [0.00,0.00]   +0.03 [-0.08,+0.16]
+cont1      25  0.00  0.05       nan   nan [nan,nan]   -0.10 [-0.20,+0.00]
+cont2      23  0.00  0.06       nan   nan [nan,nan]   -0.02 [-0.12,+0.08]
+leak1      18  0.00  0.00       nan   nan [nan,nan]   +0.05 [-0.07,+0.14]
+leak2      20  0.00  0.00       nan   nan [nan,nan]   -0.07 [-0.18,+0.04]
+leak3      12  0.08  0.00      0.00   1.00 [1.00,1.00]   +0.07 [+0.01,+0.14]
+stat1      15  0.00  0.00       nan   nan [nan,nan]   -0.06 [-0.18,+0.07]
+stat2      22  0.00  0.00       nan   nan [nan,nan]   -0.02 [-0.10,+0.05]
+
+=== qwen3-32b-awq:ais ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       58  0.03  0.00      0.00   1.00 [1.00,1.00]   -0.04 [-0.13,+0.05]
+cont       70  0.03  0.00      0.00   1.00 [1.00,1.00]   +0.02 [-0.05,+0.09]
+leak       72  0.00  0.00       nan   nan [nan,nan]   -0.04 [-0.11,+0.02]
+stat       52  0.29  0.00      0.00   0.93 [0.72,1.00]   -0.20 [-0.36,-0.05]
+base1      22  0.05  0.00      0.00   1.00 [1.00,1.00]   -0.11 [-0.22,+0.00]
+base2      36  0.03  0.00      0.00   1.00 [1.00,1.00]   -0.01 [-0.13,+0.10]
+cont1      35  0.06  0.00      0.00   1.00 [1.00,1.00]   +0.01 [-0.07,+0.09]
+cont2      35  0.00  0.00       nan   nan [nan,nan]   +0.04 [-0.07,+0.14]
+leak1      27  0.00  0.00       nan   nan [nan,nan]   -0.04 [-0.15,+0.09]
+leak2      28  0.00  0.00       nan   nan [nan,nan]   -0.01 [-0.13,+0.09]
+leak3      17  0.00  0.00       nan   nan [nan,nan]   -0.07 [-0.20,+0.09]
+stat1      23  0.57  0.00      0.00   0.92 [0.70,1.00]   -0.36 [-0.66,-0.12]
+stat2      29  0.07  0.00      0.00   1.00 [1.00,1.00]   -0.10 [-0.26,+0.07]
+
+=== qwen3-32b-awq:think+audit ===   (pass line 3.00)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       59  0.83  0.04      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont       71  0.89  0.21      0.27   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak       77  0.64  0.08      0.45   0.00 [0.00,0.00]   +nan [+nan,+nan]
+stat       54  0.78  0.02      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+base1      23  0.83  0.10      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+base2      36  0.83  0.00      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont1      35  0.89  0.13      0.39   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont2      36  0.89  0.28      0.16   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak1      30  1.00  0.04      0.70   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak2      29  0.34  0.03      0.10   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak3      18  0.50  0.22      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+stat1      24  1.00  0.06      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+stat2      30  0.60  0.00      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+
+=== qwen3-32b-awq:think+two ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       59  0.88  0.07      0.00   0.83 [0.70,0.94]   -0.02 [-0.09,+0.05]
+cont       71  0.89  0.14      0.08   0.76 [0.64,0.86]   -0.07 [-0.15,+0.02]
+leak       77  0.60  0.06      0.11   0.65 [0.51,0.79]   -0.04 [-0.14,+0.06]
+stat       54  0.80  0.06      0.02   0.63 [0.50,0.75]   -0.09 [-0.18,-0.00]
+base1      23  0.91  0.14      0.00   0.95 [0.85,1.00]   +0.06 [-0.00,+0.15]
+base2      36  0.86  0.03      0.00   0.74 [0.56,0.91]   -0.07 [-0.15,+0.00]
+cont1      35  0.86  0.10      0.17   0.70 [0.51,0.88]   -0.13 [-0.30,+0.03]
+cont2      36  0.92  0.17      0.00   0.82 [0.69,0.94]   -0.01 [-0.07,+0.06]
+leak1      30  1.00  0.00      0.17   0.53 [0.37,0.70]   -0.30 [-0.44,-0.18]
+leak2      29  0.31  0.00      0.00   0.89 [0.67,1.00]   +0.13 [-0.02,+0.28]
+leak3      18  0.39  0.22      0.00   0.86 [0.33,1.00]   +0.02 [-0.15,+0.20]
+stat1      24  1.00  0.17      0.04   0.54 [0.38,0.71]   -0.15 [-0.35,+0.05]
+stat2      30  0.63  0.00      0.00   0.74 [0.58,0.93]   -0.06 [-0.13,+0.01]
+
+=== qwen3-32b-awq:think+verify+grule ===   (pass line 3.00)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.80  0.07      0.19   0.15 [0.07,0.22]   -0.19 [-0.31,-0.07]
+cont       72  0.81  0.39      0.71   0.12 [0.05,0.19]   -0.55 [-0.67,-0.41]
+leak       78  0.46  0.10      0.83   0.06 [0.00,0.15]   -0.28 [-0.44,-0.10]
+stat       54  0.74  0.06      0.68   0.12 [0.02,0.24]   -0.31 [-0.48,-0.14]
+base1      24  0.79  0.19      0.00   0.26 [0.15,0.35]   -0.19 [-0.33,+0.00]
+base2      36  0.81  0.00      0.31   0.07 [0.00,0.17]   -0.19 [-0.36,-0.05]
+cont1      36  0.72  0.20      0.96   0.04 [0.00,0.14]   -0.83 [-0.94,-0.71]
+cont2      36  0.89  0.56      0.50   0.19 [0.09,0.28]   -0.31 [-0.45,-0.17]
+leak1      30  0.97  0.04      0.93   0.03 [0.00,0.10]   -0.71 [-1.08,-0.40]
+leak2      30  0.10  0.03      0.33   0.33 [0.00,1.00]   -0.07 [-0.29,+0.13]
+leak3      18  0.22  0.28      0.50   0.00 [0.00,0.00]   -0.06 [-0.29,+0.22]
+stat1      24  1.00  0.17      0.62   0.12 [0.00,0.29]   -0.56 [-0.89,-0.22]
+stat2      30  0.53  0.00      0.75   0.12 [0.00,0.28]   -0.17 [-0.33,+0.00]
+
+=== qwen3-32b-awq:think+verify+s10 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.57  0.07      0.03   0.91 [0.84,1.00]   -0.02 [-0.10,+0.06]
+cont       72  0.76  0.30      0.05   0.85 [0.74,0.95]   -0.11 [-0.18,-0.04]
+leak       78  0.46  0.00      0.06   0.83 [0.70,0.95]   -0.06 [-0.14,+0.01]
+stat       54  0.78  0.10      0.02   0.81 [0.62,0.94]   -0.16 [-0.25,-0.07]
+base1      24  0.54  0.10      0.00   1.00 [1.00,1.00]   +0.08 [+0.00,+0.19]
+base2      36  0.58  0.06      0.05   0.86 [0.76,1.00]   -0.09 [-0.20,+0.02]
+cont1      36  0.69  0.07      0.12   0.76 [0.59,0.95]   -0.10 [-0.22,+0.05]
+cont2      36  0.83  0.50      0.00   0.93 [0.82,1.00]   -0.11 [-0.19,-0.04]
+leak1      30  0.87  0.00      0.08   0.81 [0.66,0.96]   -0.11 [-0.27,+0.03]
+leak2      30  0.13  0.00      0.00   1.00 [1.00,1.00]   +0.00 [-0.12,+0.11]
+leak3      18  0.33  0.00      0.00   0.83 [0.33,1.00]   -0.10 [-0.20,+0.00]
+stat1      24  1.00  0.22      0.04   0.79 [0.50,0.96]   -0.20 [-0.30,-0.10]
+stat2      30  0.60  0.03      0.00   0.83 [0.69,0.98]   -0.13 [-0.27,-0.02]
+
+=== qwen3-8b:think+audit ===   (pass line 3.00)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.93  0.11      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont       72  0.83  0.41      0.08   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak       78  0.49  0.07      0.45   0.00 [0.00,0.00]   +nan [+nan,+nan]
+stat       54  0.70  0.00      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+base1      24  0.96  0.14      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+base2      36  0.92  0.08      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont1      36  0.67  0.23      0.08   0.00 [0.00,0.00]   +nan [+nan,+nan]
+cont2      36  1.00  0.56      0.08   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak1      30  1.00  0.00      0.53   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak2      30  0.27  0.07      0.12   0.00 [0.00,0.00]   +nan [+nan,+nan]
+leak3      18  0.00  0.17       nan   nan [nan,nan]   +nan [+nan,+nan]
+stat1      24  0.79  0.00      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+stat2      30  0.63  0.00      0.00   0.00 [0.00,0.00]   +nan [+nan,+nan]
+
+=== qwen3-8b:think+two ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.92  0.26      0.02   1.00 [1.00,1.00]   +0.11 [+0.02,+0.19]
+cont       72  0.81  0.21      0.00   0.93 [0.84,1.00]   -0.13 [-0.20,-0.06]
+leak       78  0.59  0.03      0.00   0.93 [0.87,1.00]   +0.05 [-0.03,+0.13]
+stat       54  0.70  0.06      0.21   0.87 [0.75,0.97]   -0.07 [-0.17,+0.03]
+base1      24  0.96  0.52      0.00   1.00 [1.00,1.00]   +0.02 [-0.07,+0.11]
+base2      36  0.89  0.11      0.03   1.00 [1.00,1.00]   +0.16 [+0.06,+0.28]
+cont1      36  0.61  0.03      0.00   0.91 [0.68,1.00]   -0.15 [-0.24,-0.05]
+cont2      36  1.00  0.36      0.00   0.94 [0.86,1.00]   -0.11 [-0.20,-0.02]
+leak1      30  1.00  0.04      0.00   0.90 [0.80,0.98]   -0.13 [-0.30,+0.00]
+leak2      30  0.47  0.03      0.00   1.00 [1.00,1.00]   +0.12 [+0.02,+0.21]
+leak3      18  0.11  0.00      0.00   1.00 [1.00,1.00]   +0.17 [+0.04,+0.30]
+stat1      24  0.79  0.11      0.42   0.79 [0.61,0.98]   -0.17 [-0.40,+0.05]
+stat2      30  0.63  0.03      0.00   0.95 [0.84,1.00]   -0.01 [-0.11,+0.07]
+

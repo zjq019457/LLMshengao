@@ -96,6 +96,17 @@ case $1 in
     blane deepreviewer-7b:fast qwen3-32b-awq:ais deepreviewer-7b:std
     wait
     $PY bench_eval.py ;;
+  gate)  # hard-flaw gate on top of existing reviewers: quality benchmark, then K1 sensitivity
+    g=$(freest_gpu); run $g bench_audit review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+    for b in qwen3-32b-awq:s10 deepreviewer-7b:fast qwen3-32b-awq:ais deepreviewer-7b:std; do
+      [ -f $R/out_bench/reviews_${b/:/_}.jsonl ] || continue
+      g=$(freest_gpu); run $g bench_gate_${b//[:+]/_} gate.py --base $b --data bench_iclr25 --tag _bench
+    done
+    $PY bench_eval.py
+    for b in qwen3-32b-awq:think+verify+s10 deepreviewer-7b:fast qwen3-32b-awq:ais; do
+      g=$(freest_gpu); run $g k1_gate_${b//[:+]/_} gate.py --base $b
+    done
+    bash $0 judge ;;
   judge)
     g=$(NEED_MIB=28000 freest_gpu)
     K0_GPU_MEM=0.33 run $g judge judge.py --judge qwen3-32b-awq

@@ -1,17 +1,25 @@
-"""Hard-flaw gate: a plug-in that keeps any reviewer's score and caps it only for verified fatal flaws.
+"""Hard-flaw gate: a plug-in that keeps any reviewer's score and lowers it only for verified fatal flaws.
 
-  python gate.py --base deepreviewer-7b:fast --audit qwen3-32b-awq:think+audit [--data versions --tag ""]
-  -> out<tag>/reviews_<base>+gate.jsonl  (same record format, so judge/analyze/bench_eval read it unchanged)
+  python gate.py --base deepreviewer-7b:fast [--audit qwen3-32b-awq:think+audit] [--data versions --tag ""]
+                 [--k 1] [--mode cap|minus] [--no-quote] [--no-reported] [--audit-samples 3] [--checker qwen3-32b-awq]
+  -> out<tag>/reviews_<base>+gate<suffix>.jsonl  (same record format, so judge/analyze/bench_eval read it unchanged)
 
-For each manuscript, every issue from the stage-1 audit is checked in a fresh session:
+For each manuscript, every issue from the stage-1 audit (one list per audit sample) is checked in a fresh session:
   reported   the paper itself states the problem; the model must quote the sentence, and the quote must
              occur in the paper (whitespace-insensitive), so "not described / unclear" concerns cannot pass
   fatal      the problem invalidates the paper's main results
-If any issue is reported AND fatal, the base overall score is capped (<= 3 on 1-10, <= 2 on 1-5).
-The base review's other fields are kept; gated issues are added to its weaknesses with severity "fatal".
+An audit sample "votes" if at least one of its issues is verified (reported AND fatal AND quote found).
+The gate fires when >= k of the audit samples vote; then the base overall score is capped
+(<= 3 on 1-10, <= 2 on 1-5) or, with --mode minus, lowered by --delta.
+Check outputs are cached by prompt hash (out<tag>/gate_cache_<checker>.jsonl), so variants reuse them exactly.
+Ablations: --no-quote (skip the quote check), --no-reported (fatal alone suffices), --audit-samples n (first n samples).
 """
 import argparse
+import hashlib
+import json
+import os
 import re
+import time
 
 from common import LLM, ROOT, extract_json, read_jsonl, write_jsonl
 
@@ -29,50 +37,100 @@ Answer two questions strictly.
 Return ONLY JSON: {{"reported": <true|false>, "quote": "<verbatim sentence or empty>", "fatal": <true|false>}}"""
 
 CAP = {"iclr10": 3, "arr5": 2}
+FLOOR = {"iclr10": 1, "arr5": 1}
 
 
 def norm(s):
     return re.sub(r"\s+", " ", s).strip().lower()
 
 
-def main(base, audit, data, tag, judge_model):
-    out = f"{ROOT}/out{tag}"
-    text = {(r["paper_id"], r["version"], r.get("variant")): r["text"] for r in read_jsonl(f"{ROOT}/data/{data}.jsonl")}
-    issues = {}
-    for a in read_jsonl(f"{out}/reviews_{audit.replace(':', '_')}.jsonl"):
-        key = (a["paper_id"], a["version"], a.get("variant"))
-        for w in (a["review"] or {}).get("weaknesses", []):
-            i = (w.get("issue") or "").strip() if isinstance(w, dict) else str(w)
-            if i and i not in issues.setdefault(key, []):
-                issues[key].append(i)  # union over audit samples
-    jobs = [(k, i) for k, lst in issues.items() for i in lst if k in text]
-    print(f"{len(jobs)} issue checks over {len(issues)} manuscripts")
-    llm = LLM(judge_model)
-    outs = llm.chat([CHECK.format(issue=i, paper=text[k]) for k, i in jobs], temperature=0.0, max_tokens=600)  # paper-first prompt: prefix cache
-    gated = {}
-    for (k, i), (raw,) in zip(jobs, outs):
-        j = extract_json(raw) or {}
+def suffix(a):
+    s = f"_k{a.k}"
+    if a.mode == "minus":
+        s += f"_m{a.delta:g}"
+    if a.no_quote:
+        s += "_noquote"
+    if a.no_reported:
+        s += "_noreported"
+    if a.audit_samples != 3:
+        s += f"_a{a.audit_samples}"
+    if a.audit != "qwen3-32b-awq:think+audit":
+        s += "_aud" + a.audit.split(":")[0].replace("qwen3-", "")
+    if a.checker != "qwen3-32b-awq":
+        s += "_chk" + a.checker.replace("qwen3-", "")
+    return s
+
+
+def run_checks(jobs, text, checker, cache_path):
+    """jobs: list of (key, issue). Returns {(key, issue): parsed json}. Missing prompts are generated and cached."""
+    cache = {}
+    if os.path.exists(cache_path):
+        for c in read_jsonl(cache_path):
+            cache[c["h"]] = c
+    prompts = {(k, i): CHECK.format(issue=i, paper=text[k]) for k, i in jobs}
+    h = {ki: hashlib.sha1(p.encode()).hexdigest() for ki, p in prompts.items()}
+    todo = [ki for ki in prompts if h[ki] not in cache]
+    print(f"{len(prompts)} issue checks, {len(todo)} not cached")
+    if todo:
+        t0 = time.time()
+        llm = LLM(checker)
+        outs = llm.chat([prompts[ki] for ki in todo], temperature=0.0, max_tokens=600)  # paper-first prompt: prefix cache
+        new = []
+        for ki, (raw,) in zip(todo, outs):
+            c = {"h": h[ki], "raw": raw, "in_tok": len(llm.tok(prompts[ki]).input_ids), "out_tok": len(llm.tok(raw).input_ids)}
+            cache[c["h"]] = c
+            new.append(c)
+        with open(cache_path, "a", encoding="utf-8") as f:
+            for c in new:
+                f.write(json.dumps(c, ensure_ascii=False) + "\n")
+        print(f"checked {len(todo)} in {time.time() - t0:.0f}s")
+    return {ki: extract_json(cache[h[ki]]["raw"]) or {} for ki in prompts}
+
+
+def main(a):
+    out = f"{ROOT}/out{a.tag}"
+    text = {(r["paper_id"], r["version"], r.get("variant")): r["text"] for r in read_jsonl(f"{ROOT}/data/{a.data}.jsonl")}
+    issues = {}  # key -> {issue: set of audit samples}
+    for r in read_jsonl(f"{out}/reviews_{a.audit.replace(':', '_')}.jsonl"):
+        if r["sample"] >= a.audit_samples:
+            continue
+        key = (r["paper_id"], r["version"], r.get("variant"))
+        for w in (r["review"] or {}).get("weaknesses", []):
+            i = (w.get("issue") or "").strip() if isinstance(w, dict) else str(w).strip()
+            if i:
+                issues.setdefault(key, {}).setdefault(i, set()).add(r["sample"])
+    jobs = [(k, i) for k, d in issues.items() for i in d if k in text]
+    res = run_checks(jobs, text, a.checker, f"{out}/gate_cache_{a.checker}.jsonl")
+    votes, verified = {}, {}
+    for (k, i), j in res.items():
         q = norm(str(j.get("quote") or ""))
-        if j.get("reported") and j.get("fatal") and len(q) > 20 and q in norm(text[k]):
-            gated.setdefault(k, []).append({"issue": i, "location": "", "severity": "fatal", "gate_quote": j["quote"]})
-    res = []
-    for r in read_jsonl(f"{out}/reviews_{base.replace(':', '_')}.jsonl"):
+        ok = bool(j.get("fatal")) and (a.no_reported or bool(j.get("reported"))) and \
+            (a.no_quote or (len(q) > 20 and q in norm(text[k])))
+        if ok:
+            votes.setdefault(k, set()).update(issues[k][i])
+            verified.setdefault(k, []).append({"issue": i, "location": "", "severity": "fatal",
+                                               "gate_quote": j.get("quote") or ""})
+    fire = {k for k, v in votes.items() if len(v) >= a.k}
+    sfx = suffix(a)
+    rows = []
+    for r in read_jsonl(f"{out}/reviews_{a.base.replace(':', '_')}.jsonl"):
         rv = dict(r["review"]) if r["review"] else None
-        g = gated.get((r["paper_id"], r["version"], r.get("variant")), [])
-        if rv is not None and g:
-            cap = CAP[rv.get("scale", "arr5")]
+        k = (r["paper_id"], r["version"], r.get("variant"))
+        if rv is not None and k in fire:
+            sc = rv.get("scale", "arr5")
             try:
-                rv["overall_assessment"] = min(float(rv["overall_assessment"]), cap)
-            except (TypeError, ValueError):
+                s = float(rv["overall_assessment"])
+                rv["overall_assessment"] = min(s, CAP[sc]) if a.mode == "cap" else max(s - a.delta, FLOOR[sc])
+            except (TypeError, ValueError, KeyError):
                 pass
-            rv["weaknesses"] = list(rv.get("weaknesses") or []) + g
-            if rv.get("decision"):
+            rv["weaknesses"] = list(rv.get("weaknesses") or []) + verified[k]
+            if rv.get("decision") and a.mode == "cap":
                 rv["decision"] = "Reject"
             rv["gated"] = True
-        res.append(dict(r, model=f"{base}+gate", review=rv))
-    n = sum(bool((x["review"] or {}).get("gated")) for x in res)
-    print(f"gated {n}/{len(res)} reviews; {len(gated)} manuscripts with a verified fatal flaw")
-    write_jsonl(f"{out}/reviews_{base.replace(':', '_')}+gate.jsonl", res)
+        rows.append(dict(r, model=f"{a.base}+gate{sfx}", review=rv))
+    n = sum(bool((x["review"] or {}).get("gated")) for x in rows)
+    print(f"{a.base}+gate{sfx}: gated {n}/{len(rows)} reviews; {len(fire)} manuscripts fire")
+    write_jsonl(f"{out}/reviews_{a.base.replace(':', '_')}+gate{sfx}.jsonl", rows)
 
 
 if __name__ == "__main__":
@@ -81,6 +139,11 @@ if __name__ == "__main__":
     ap.add_argument("--audit", default="qwen3-32b-awq:think+audit")
     ap.add_argument("--data", default="versions")
     ap.add_argument("--tag", default="")
-    ap.add_argument("--judge-model", default="qwen3-32b-awq")
-    a = ap.parse_args()
-    main(a.base, a.audit, a.data, a.tag, a.judge_model)
+    ap.add_argument("--checker", default="qwen3-32b-awq")
+    ap.add_argument("--k", type=int, default=1)
+    ap.add_argument("--mode", choices=["cap", "minus"], default="cap")
+    ap.add_argument("--delta", type=float, default=2.0)
+    ap.add_argument("--no-quote", action="store_true")
+    ap.add_argument("--no-reported", action="store_true")
+    ap.add_argument("--audit-samples", type=int, default=3)
+    main(ap.parse_args())

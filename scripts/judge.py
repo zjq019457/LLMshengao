@@ -11,6 +11,8 @@ F flaw and of the R removal for p, so N reviews give the false-positive baseline
 Export out/judge_audit.csv (30 random rows) for the human agreement check (target kappa >= 0.7).
 """
 import argparse
+import hashlib
+import os
 import csv
 import glob
 import json
@@ -63,10 +65,21 @@ def main(judge_key):
     prompts = [PROMPT.format(flaw=get(r).get("F", ""),
                              removed=get(r).get("R", ""),
                              review=review_text(r)) for r in reviews]
-    llm = LLM(judge_key, max_len=8192)  # prompts are a review + two sentences
-    outs = llm.chat(prompts, temperature=0.0, max_tokens=600)
-    for r, o in zip(reviews, outs):
-        j = extract_json(o[0]) or {}
+    # judgments are cached by prompt hash, so re-running after adding configs only judges new reviews
+    cache_path = f"{ROOT}/out/judge_cache_{judge_key}.jsonl"
+    cache = {c["h"]: c["raw"] for c in read_jsonl(cache_path)} if os.path.exists(cache_path) else {}
+    hs = [hashlib.sha1(p.encode()).hexdigest() for p in prompts]
+    todo = sorted({h: i for i, h in enumerate(hs) if h not in cache}.items(), key=lambda x: x[1])
+    print(f"{len(prompts)} judgments, {len(todo)} not cached")
+    if todo:
+        llm = LLM(judge_key, max_len=8192)  # prompts are a review + two sentences
+        outs = llm.chat([prompts[i] for _, i in todo], temperature=0.0, max_tokens=600)
+        with open(cache_path, "a", encoding="utf-8") as f:
+            for (h, _), o in zip(todo, outs):
+                cache[h] = o[0]
+                f.write(json.dumps({"h": h, "raw": o[0]}, ensure_ascii=False) + "\n")
+    for r, h in zip(reviews, hs):
+        j = extract_json(cache[h]) or {}
         r["judge"] = {k: j.get(k) for k in
                       ("detected_flaw", "flaw_quote", "flaw_severity", "flagged_missing", "asserts_protocol", "assert_quote")}
         r.pop("raw", None)

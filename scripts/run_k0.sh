@@ -107,6 +107,61 @@ case $1 in
       g=$(freest_gpu); run $g k1_gate_${b//[:+]/_} gate.py --base $b
     done
     bash $0 judge ;;
+  paper)  # main-table run: dev split for choosing gate settings, ICLR 2024 as a second test year, gate variants + ablations
+    $PY make_bench.py > $R/logs/make_bench.log 2>&1
+    mkdir -p $R/out_dev $R/out_bench24 $R/out_gate_old
+    mv $R/out/*+gate.jsonl $R/out_bench/*+gate.jsonl $R/out_gate_old/ 2>/dev/null  # superseded by +gate_k1
+    rv() {  # rv <split-tag> <data> <cfg...>
+      local t=$1 d=$2; shift 2
+      for cfg in "$@"; do g=$(freest_gpu)
+        run $g rev${t}_${cfg//[:+]/_} review.py --model $cfg --versions O --allow-unchecked --data $d --tag $t
+      done
+    }
+    gt() {  # gt <split-tag> <data> <base> <gate args...>
+      local t=$1 d=$2 b=$3; shift 3
+      g=$(NEED_MIB=28000 freest_gpu)
+      run $g gate${t}_${b//[:+]/_}_$(echo "$*" | tr -d ' -') gate.py --base $b --data $d --tag $t "$@"
+    }
+    VAR=("--k 1" "--k 2" "--k 3" "--k 1 --mode minus" "--k 2 --mode minus")
+    ABL=("--k 1 --no-quote" "--k 1 --no-reported" "--k 1 --audit-samples 1" "--k 1 --checker qwen3-8b"
+         "--k 2 --no-quote" "--k 2 --no-reported" "--k 2 --checker qwen3-8b")
+    # phase 1: new reviews / audits (three lanes); lane C also builds the K1 and test check caches
+    rv _dev bench_dev25 qwen3-32b-awq:think+audit &
+    sleep 120
+    { rv _dev bench_dev25 deepreviewer-7b:fast qwen3-32b-awq:s10 qwen3-32b-awq:ais
+      rv _bench24 bench_iclr24 deepreviewer-7b:fast qwen3-32b-awq:s10 qwen3-32b-awq:ais; } &
+    sleep 120
+    { rv _bench bench_iclr25 qwen3-8b:think+audit
+      gt "" versions deepreviewer-7b:fast --k 1
+      gt _bench bench_iclr25 deepreviewer-7b:fast --k 1
+      gt "" versions deepreviewer-7b:fast --k 1 --checker qwen3-8b
+      gt _bench bench_iclr25 deepreviewer-7b:fast --k 1 --checker qwen3-8b
+      rv _bench24 bench_iclr24 qwen3-32b-awq:think+audit; } &
+    wait
+    # phase 2: gate variants (checks are cached, so most of these take seconds)
+    for b in deepreviewer-7b:fast qwen3-32b-awq:s10 qwen3-32b-awq:ais; do
+      for v in "${VAR[@]}"; do gt _dev bench_dev25 $b $v; gt _bench24 bench_iclr24 $b $v; done
+    done
+    for b in deepreviewer-7b:fast qwen3-32b-awq:s10 qwen3-32b-awq:ais deepreviewer-7b:std qwen3-32b-awq:think+verify+s10; do
+      for v in "${VAR[@]}"; do gt _bench bench_iclr25 $b $v; done
+    done
+    for b in deepreviewer-7b:fast qwen3-32b-awq:ais qwen3-32b-awq:think+verify+s10; do
+      for v in "${VAR[@]}"; do gt "" versions $b $v; done
+    done
+    for b in deepreviewer-7b:fast qwen3-32b-awq:s10; do
+      for v in "${ABL[@]}"; do gt _bench bench_iclr25 $b $v; done
+      gt _bench bench_iclr25 $b --k 1 --audit qwen3-8b:think+audit; gt _bench bench_iclr25 $b --k 2 --audit qwen3-8b:think+audit
+    done
+    for b in deepreviewer-7b:fast qwen3-32b-awq:ais; do
+      for v in "${ABL[@]}"; do gt "" versions $b $v; done
+      gt "" versions $b --k 1 --audit qwen3-8b:think+audit; gt "" versions $b --k 2 --audit qwen3-8b:think+audit
+    done
+    # phase 3: evaluation
+    $PY bench_eval.py --tag _dev --data bench_dev25 > $R/logs/eval_dev.log 2>&1
+    $PY bench_eval.py --tag _bench --data bench_iclr25 > $R/logs/eval_bench.log 2>&1
+    $PY bench_eval.py --tag _bench24 --data bench_iclr24 > $R/logs/eval_bench24.log 2>&1
+    bash $0 judge
+    echo "[$(date +%T)] paper stage done" >> $R/logs/k0.log ;;
   judge)
     g=$(NEED_MIB=28000 freest_gpu)
     K0_GPU_MEM=0.33 run $g judge judge.py --judge qwen3-32b-awq

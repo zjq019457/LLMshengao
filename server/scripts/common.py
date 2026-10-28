@@ -9,6 +9,7 @@ MODELS = {
     "qwen3-32b-awq": f"{ROOT}/models/Qwen3-32B-AWQ",
     "deepreviewer-7b": f"{ROOT}/models/DeepReviewer-7B",  # gated licence: research use, not official review
     "deepreviewer-14b": f"{ROOT}/models/DeepReviewer-14B",
+    "openreviewer-8b": f"{ROOT}/models/Llama-OpenReviewer-8B",  # Llama 3.1 licence
     "r1-llama-8b": "/diskF/jiaqizhang/models/DeepSeek-R1-Distill-Llama-8B",  # existing local copy, read-only
 }
 MAX_PAPER_CHARS = 90_000  # ~22k tokens; keeps prompt + 3k output under 32k

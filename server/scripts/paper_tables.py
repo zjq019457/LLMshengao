@@ -27,6 +27,7 @@ CANDS = ["_k1", "_k1_m2", "_k2", "_k2_m2", "_k3", "_k3_m2"]
 DEV_BASES = ["deepreviewer-7b:fast", "qwen3-32b-awq:s10", "qwen3-32b-awq:ais"]
 PASS10 = 6
 NAMES = {"deepreviewer-7b:fast": "DeepReviewer-7B (fast)", "deepreviewer-7b:std": "DeepReviewer-7B (std)",
+         "deepreviewer-14b:fast": "DeepReviewer-14B (fast)", "openreviewer-8b": "OpenReviewer-8B",
          "qwen3-32b-awq:ais": "AI Scientist (Qwen3-32B)", "qwen3-32b-awq:s10": "Qwen3-32B",
          "qwen3-32b-awq:think+verify+s10": "Qwen3-32B think+verify",
          "qwen3-32b-awq:think+verify+grule+s10": "Fatal-flaw rule (ours, M1)",
@@ -213,7 +214,7 @@ def figures(k1t, k1v, dev, test):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     show = [m for m in k1t.model if split_model(m)[1] in ("", "+gate_k1", "+gate" + CHOSEN)
-            and split_model(m)[0] in ("deepreviewer-7b:fast", "qwen3-32b-awq:ais", "qwen3-32b-awq:think+verify+s10",
+            and split_model(m)[0] in ("deepreviewer-7b:fast", "deepreviewer-14b:fast", "openreviewer-8b", "qwen3-32b-awq:ais", "qwen3-32b-awq:think+verify+s10",
                                       "qwen3-32b-awq:think+verify+grule", "qwen3-32b-awq:think+two")]
     t = k1t.set_index("model").loc[show].reset_index()
     t.to_csv(f"{P}/fig_k1_pass.csv", index=False)

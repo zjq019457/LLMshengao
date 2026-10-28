@@ -1,0 +1,12 @@
+# Environment (minimal; the full venv is not backed up)
+- **OS / hardware:** Linux, 3× A100 80GB PCIe, NVIDIA driver 580.82.07. GPUs were shared, so each vLLM engine used 38% of memory (`K0_GPU_MEM`).
+- **Python:** 3.12.3. Packages in `requirements.txt`; the full `pip freeze` is in `scripts/requirements_server.txt`.
+- **Setup:** `bash env/setup_env.sh <root>`.
+- **Models (not backed up; download from HF / ModelScope):**
+  - `Qwen/Qwen3-32B-AWQ`: reviewer, auditor, gate checker and judge.
+  - `Qwen/Qwen3-8B`: ablations.
+  - `WestlakeNLP/DeepReviewer-7B`: baseline. Accept its license on HF first.
+  - `deepseek-ai/DeepSeek-R1-Distill-Llama-8B`: optional. The local copy had a broken tokenizer.
+  - Set the paths in `MODELS` in `scripts/common.py`.
+- **Data with license restrictions (not in the public repo):** the DeepReview-13K `test_2024.csv` / `test_2025.csv` from HF, which go into `data/`. Then run `python make_bench.py`. The `bench_iclr25.jsonl` split must be rebuilt the same way (100 accept / 100 reject, seed 0, 17k–84k characters).
+- **Closed models:** only via Codex, by hand. No API keys are stored anywhere in this repo.

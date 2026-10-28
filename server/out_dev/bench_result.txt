@@ -1,0 +1,8 @@
+config                                     cov                MAE           Spearman                AUC                acc                 F1
+deepreviewer-7b:fast                   174/180  0.853 [0.76,0.95]  0.311 [0.16,0.45]  0.663 [0.58,0.74]  0.557 [0.48,0.63]  0.550 [0.45,0.64]
+qwen3-32b-awq:ais                      179/180  2.219 [2.07,2.38]  0.219 [0.06,0.37]  0.613 [0.52,0.69]  0.508 [0.44,0.58]  0.662 [0.59,0.73]
+qwen3-32b-awq:s10                      178/180  2.354 [2.19,2.51]  0.208 [0.06,0.34]  0.589 [0.51,0.66]  0.494 [0.42,0.57]  0.662 [0.59,0.72]
+qwen3-32b-awq:think+verify+grule+s10   180/180  1.044 [0.94,1.15]  0.146 [-0.01,0.28]  0.576 [0.49,0.65]  0.533 [0.46,0.61]  0.311 [0.19,0.41]
+qwen3-32b-awq:think+verify+s10         180/180  1.155 [1.02,1.29]  0.114 [-0.03,0.26]  0.595 [0.51,0.68]  0.544 [0.48,0.62]  0.669 [0.60,0.73]
+
+human reviewer self-consistency is the reference ceiling (see DeepReviewer paper); mean score per config: deepreviewer-7b:fast=5.46, qwen3-32b-awq:ais=7.65, qwen3-32b-awq:s10=7.81, qwen3-32b-awq:think+verify+grule+s10=5.21, qwen3-32b-awq:think+verify+s10=6.37

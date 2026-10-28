@@ -13,6 +13,7 @@ import re
 
 from ais_prompts import AIS_FORM, AIS_SYSTEM
 from common import LLM, ROOT, extract_json, read_jsonl, write_jsonl
+from or_prompts import OR_FIELDS_ICLR25, OR_SYSTEM_TEMPLATE, OR_USER
 
 FORM = """You are an expert reviewer for ACL Rolling Review (ARR). Review the anonymous submission below.
 
@@ -145,6 +146,18 @@ def parse_deepreviewer(raw):
             "scale": "iclr10"}
 
 
+def parse_openreviewer(raw):
+    """OpenReviewer markdown review (ICLR 2025 fields): Rating 1-10, Soundness 1-4, no confidence field."""
+    sec = lambda name: (re.search(rf"## {name}\s*\n(.*?)(?=\n## |\Z)", raw, flags=re.S) or [None, ""])[1].strip()
+    rating = _num(r"## Rating\s*\n", raw)
+    if rating is None:
+        return None
+    weak = sec("Weaknesses")
+    return {"summary": sec("Summary"), "weaknesses": [{"issue": weak}] if weak else [],
+            "soundness": {"score": _num(r"## Soundness\s*\n", raw), "confidence": None, "cannot_assess": False},
+            "overall_assessment": rating, "overall_confidence": None, "decision": None, "scale": "iclr10"}
+
+
 def approved_versions():
     """(paper, version) pairs to review: each valid F or R, plus N/O for any paper with a valid F or R
     (H1 uses the F-valid papers, H3 the R-valid ones)."""
@@ -170,6 +183,12 @@ def main(config, n, versions, allow_unchecked, data="versions", tag=""):
         outs = llm.chat([r["text"] for r in rows], system=DR_SYSTEM[mode], temperature=0.4, n=n,
                         max_tokens=8000 if mode == "std" else 3000)
         parse = parse_deepreviewer
+    elif model_key.startswith("openreviewer"):
+        # the model card gives no sampling settings: T=0.7, top_p=0.95 as for our other non-thinking runs
+        outs = llm.chat([OR_USER.format(paper_text=r["text"]) for r in rows],
+                        system=OR_SYSTEM_TEMPLATE.format(review_fields=OR_FIELDS_ICLR25), temperature=0.7, n=n,
+                        max_tokens=3000)
+        parse = parse_openreviewer
     elif "ais" in opts:
         # AI Scientist reviewer: its own system prompt and NeurIPS form, T=0.75, single review,
         # no few-shot examples and no reflection rounds (the repo defaults are 1 example, 1 reflection)

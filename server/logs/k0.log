@@ -201,3 +201,4 @@
 [04:14:57] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_dev25 --tag _dev
 [04:17:32] GPU1: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
 [07:01:36] GPU2: review.py --model qwen3-8b:think+audit --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[07:26:36] GPU1: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr24 --tag _bench24 (try 1)

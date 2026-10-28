@@ -220,3 +220,4 @@
 [10:19:09] exit 1 : review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev
 [10:24:09] GPU0: review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 2)
 [10:25:07] exit 1 : review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[10:36:09] GPU0: review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 3)

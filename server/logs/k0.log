@@ -192,3 +192,11 @@
 [03:42:31] waiting for GPU (best: 0, 26356 MiB free)
 [03:47:31] waiting for GPU (best: 0, 26356 MiB free)
 [03:52:31] waiting for GPU (best: 0, 26356 MiB free)
+[03:57:32] waiting for GPU (best: 0, 26356 MiB free)
+[04:02:32] waiting for GPU (best: 0, 26356 MiB free)
+[04:07:32] waiting for GPU (best: 0, 26356 MiB free)
+[04:12:32] waiting for GPU (best: 0, 26356 MiB free)
+[04:14:09] exit 0 : review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:14:09] GPU2: review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:14:57] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:17:32] GPU1: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr24 --tag _bench24

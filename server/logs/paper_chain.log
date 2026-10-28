@@ -12,3 +12,7 @@
 [02:57:17] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag --k 1 --checker qwen3-8b
 [02:57:17] GPU2: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b
 [02:57:31] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b
+[04:14:09] exit 0 : review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:14:09] GPU2: review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:14:57] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[04:17:32] GPU1: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr24 --tag _bench24

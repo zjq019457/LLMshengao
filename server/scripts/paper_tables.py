@@ -8,6 +8,8 @@ Gate setting selection (fixed before the dev results were seen; see git history 
   >= -0.005 in AUC and >= -0.010 in Spearman. The chosen setting is then reported on the ICLR 2025 test split,
   the ICLR 2024 split and K1 without further tuning. k1 cap is also reported as the "strict" variant.
 Quality deltas use a paired paper bootstrap (same resampled papers for base and gated system).
+M3 (quality gate) is reported as its own method: the candidate with the highest mean dev dAUC + dSpearman
+over the dev bases, then applied unchanged to both test splits and K1 (tab_main_m3_*.md).
 K1 main metrics are unconditional: pass rate on flawed (F) and on clean (N) manuscripts, and paired F-N.
 """
 import glob
@@ -112,6 +114,20 @@ def choose(dev):
         if ok:
             return c, lines
     return CANDS[-1], lines + ["no candidate passed; using the least aggressive"]
+
+
+def choose_quality(dev):
+    """M3: the candidate that most improves mean dev AUC + Spearman over the dev bases."""
+    best, lines = None, []
+    for c in CANDS:
+        d = dev[(dev.gate == "+gate" + c) & dev.base.isin(DEV_BASES)]
+        if len(d) < len(DEV_BASES):
+            continue
+        gain = d.dAUC.mean() + d.dSpearman.mean()
+        lines.append(f"M3 {c}: dAUC {d.dAUC.mean():+.4f}  dSpearman {d.dSpearman.mean():+.4f}  sum {gain:+.4f}")
+        if best is None or gain > best[1]:
+            best = (c, gain)
+    return (best[0] if best else "_k2_m2"), lines
 
 
 # ---------- K1 ----------
@@ -301,7 +317,9 @@ def main():
     dev = quality("_dev")
     CHOSEN, lines = choose(dev) if len(dev) else ("_k1", ["no dev results"])
     open(f"{P}/chosen_gate.txt", "w").write("\n".join(lines) + f"\nCHOSEN {CHOSEN}\n")
-    print("\n".join(lines), "\nCHOSEN", CHOSEN)
+    M3, m3_lines = choose_quality(dev) if len(dev) else ("_k2_m2", ["no dev results"])
+    open(f"{P}/chosen_gate.txt", "a").write("\n".join(m3_lines) + f"\nM3 {M3}\n")
+    print("\n".join(lines + m3_lines), "\nCHOSEN", CHOSEN, "M3", M3)
     dev.to_csv(f"{P}/tab_dev_sweep.csv", index=False)
     test = pd.concat([quality("_bench"), quality("_bench24")])
     test.to_csv(f"{P}/tab_quality_all.csv", index=False)
@@ -309,6 +327,7 @@ def main():
             "dSpearman", "dSpearman_lo", "dSpearman_hi", "fire_rate", "fired_accepted"]
     main_q = test[test.gate.isin(["-", "+gate_k1", "+gate" + CHOSEN])].reindex(columns=cols)
     md(main_q, f"{P}/tab_main_quality.md")
+    md(test[test.gate.isin(["-", "+gate" + M3])].reindex(columns=cols), f"{P}/tab_main_m3_quality.md")
     abl_q = test[(test.split == "_bench") & test.base.isin(["deepreviewer-7b:fast", "qwen3-32b-awq:s10"])].reindex(columns=cols)
     md(abl_q, f"{P}/tab_ablation_quality.md")
     K1D = k1_frame()
@@ -317,6 +336,7 @@ def main():
     kc = ["model", "nF", "det_F", "det_N", "pass_F", "pass_F_lo", "pass_F_hi", "pass_N", "F_minus_N", "F_minus_N_lo",
           "F_minus_N_hi", "fire_F", "fire_N"]
     md(k1t[k1t.model.map(lambda m: split_model(m)[1] in ("", "+gate_k1", "+gate" + CHOSEN))], f"{P}/tab_main_k1.md", kc)
+    md(k1t[k1t.model.map(lambda m: split_model(m)[1] in ("", "+gate" + M3))], f"{P}/tab_main_m3_k1.md", kc)
     md(k1t[k1t.model.str.contains(r"deepreviewer-7b:fast\+gate|qwen3-32b-awq:ais\+gate")], f"{P}/tab_ablation_k1.md", kc)
     k1v = k1_by_variant(K1D)
     k1v.to_csv(f"{P}/tab_k1_by_variant.csv", index=False)

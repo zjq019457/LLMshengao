@@ -1,0 +1,147 @@
+[22:32:51] GPU1: review.py --model qwen3-32b-awq
+[22:34:51] GPU2: review.py --model qwen3-8b
+[22:39:22] exit 0 : review.py --model qwen3-8b
+[22:40:56] exit 0 : review.py --model qwen3-32b-awq
+[22:41:25] GPU1: judge.py --judge qwen3-32b-awq
+[22:41:41] exit 0 : judge.py --judge qwen3-32b-awq
+[22:42:04] GPU1: judge.py --judge qwen3-32b-awq
+[22:44:54] exit 0 : judge.py --judge qwen3-32b-awq
+[23:17:53] GPU1: review.py --model qwen3-32b-awq:think
+[23:33:11] exit 0 : review.py --model qwen3-32b-awq:think
+[23:33:11] GPU1: review.py --model qwen3-32b-awq:verify
+[23:44:29] exit 0 : review.py --model qwen3-32b-awq:verify
+[23:44:29] GPU1: review.py --model qwen3-32b-awq:think+verify
+[00:00:30] exit 0 : review.py --model qwen3-32b-awq:think+verify
+[00:00:30] waiting for DeepReviewer upload
+[00:02:37] GPU1: judge.py --judge qwen3-32b-awq
+[00:06:30] exit 0 : judge.py --judge qwen3-32b-awq
+[00:10:30] waiting for DeepReviewer upload
+[00:12:20] GPU1: make_versions.py template
+[00:26:07] exit 0 : make_versions.py template
+[00:26:52] GPU1: review.py --model qwen3-32b-awq --versions NF --allow-unchecked
+[00:34:32] exit 0 : review.py --model qwen3-32b-awq --versions NF --allow-unchecked
+[00:34:33] GPU1: review.py --model qwen3-32b-awq:think+verify --versions NF --allow-unchecked
+[00:48:58] exit 0 : review.py --model qwen3-32b-awq:think+verify --versions NF --allow-unchecked
+[00:48:58] GPU1: review.py --model qwen3-32b-awq:think+verify+rule --versions NF --allow-unchecked
+[01:07:25] exit 0 : review.py --model qwen3-32b-awq:think+verify+rule --versions NF --allow-unchecked
+[01:07:25] GPU1: review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[01:13:29] exit 0 : review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[01:13:29] GPU1: judge.py --judge qwen3-32b-awq
+[01:17:33] exit 0 : judge.py --judge qwen3-32b-awq
+[10:25:26] GPU2: review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[10:44:40] exit 0 : review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[10:44:41] GPU2: review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[11:07:03] exit 0 : review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[11:07:03] GPU2: review.py --model qwen3-32b-awq:ais+think --versions NF --allow-unchecked
+[11:38:40] exit 0 : review.py --model qwen3-32b-awq:ais+think --versions NF --allow-unchecked
+[11:38:41] GPU2: review.py --model deepreviewer-7b:std --versions NF --allow-unchecked
+[11:39:56] exit 0 : review.py --model deepreviewer-7b:std --versions NF --allow-unchecked
+[11:39:57] GPU2: review.py --model qwen3-8b:think+verify --versions NF --allow-unchecked
+[11:48:05] exit 0 : review.py --model qwen3-8b:think+verify --versions NF --allow-unchecked
+[11:48:06] GPU2: review.py --model qwen3-8b:think+verify+grule --versions NF --allow-unchecked
+[11:48:40] exit 0 : review.py --model qwen3-8b:think+verify+grule --versions NF --allow-unchecked
+[11:48:42] waiting for GPU (best: 2, 24048 MiB free)
+[11:53:42] GPU2: review.py --model r1-llama-8b:think+verify --versions NF --allow-unchecked
+[12:02:53] exit 0 : review.py --model r1-llama-8b:think+verify --versions NF --allow-unchecked
+[12:02:54] waiting for GPU (best: 2, 31760 MiB free)
+[12:07:55] GPU2: review.py --model r1-llama-8b:think+verify+grule --versions NF --allow-unchecked
+[12:16:31] exit 0 : review.py --model r1-llama-8b:think+verify+grule --versions NF --allow-unchecked
+[12:16:32] GPU0: judge.py --judge qwen3-32b-awq
+[12:34:15] exit 0 : judge.py --judge qwen3-32b-awq
+[13:08:59] GPU0: review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[13:25:46] exit 0 : review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[13:25:48] GPU0: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[13:28:25] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[13:28:26] GPU0: review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[13:31:08] exit 0 : review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[13:31:10] GPU0: judge.py --judge qwen3-32b-awq
+[13:49:20] exit 0 : judge.py --judge qwen3-32b-awq
+[14:24:57] GPU0: judge.py --judge qwen3-32b-awq
+[14:42:17] exit 0 : judge.py --judge qwen3-32b-awq
+[15:54:17] GPU1: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[16:02:07] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[16:02:07] GPU1: review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[16:03:28] GPU0: review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[16:12:43] exit 0 : review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[16:12:43] GPU0: review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[16:17:52] exit 0 : review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[16:25:45] exit 0 : review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[16:25:46] GPU1: judge.py --judge qwen3-32b-awq
+[16:27:23] exit 0 : judge.py --judge qwen3-32b-awq
+[16:30:54] GPU2: judge.py --judge qwen3-32b-awq
+[16:40:52] exit 0 : judge.py --judge qwen3-32b-awq
+[19:06:00] GPU2: make_versions.py k1
+[19:34:43] exit 0 : make_versions.py k1
+[19:34:44] GPU2: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[19:39:43] GPU1: review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[20:07:36] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked
+[20:07:36] GPU2: review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[20:11:33] exit 0 : review.py --model qwen3-8b:think+audit --versions NF --allow-unchecked
+[20:11:34] GPU1: review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[21:02:56] exit 0 : review.py --model qwen3-8b:think+two --versions NF --allow-unchecked
+[21:02:57] GPU1: review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[21:32:49] exit 0 : review.py --model deepreviewer-7b:fast --versions NF --allow-unchecked
+[21:32:50] GPU1: review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[21:49:19] exit 0 : review.py --model qwen3-32b-awq:think+two --versions NF --allow-unchecked
+[21:49:19] GPU2: review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[22:33:15] exit 0 : review.py --model qwen3-32b-awq:think+verify+s10 --versions NF --allow-unchecked
+[22:33:15] GPU2: review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[22:47:16] exit 0 : review.py --model qwen3-32b-awq:ais --versions NF --allow-unchecked
+[23:14:07] exit 0 : review.py --model qwen3-32b-awq:think+verify+grule --versions NF --allow-unchecked
+[23:14:07] GPU2: judge.py --judge qwen3-32b-awq
+[23:42:51] exit 0 : judge.py --judge qwen3-32b-awq
+[10:34:40] GPU2: judge.py --judge qwen3-32b-awq
+[10:43:08] GPU1: review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[10:48:07] GPU2: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:21:44] exit 0 : judge.py --judge qwen3-32b-awq
+[11:24:18] exit 0 : review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:24:18] GPU1: review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:32:12] GPU0: review.py --model --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:32:12] exit 0 : review.py --model --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:33:10] exit 0 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[11:33:10] GPU2: review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[12:45:54] exit 0 : review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[12:45:54] GPU2: review.py --model deepreviewer-7b:std --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[12:46:08] exit 0 : review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[12:46:08] GPU1: review.py --model qwen3-32b-awq:think+verify+s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[16:28:15] exit 0 : review.py --model qwen3-32b-awq:think+verify+s10 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[16:44:25] exit 0 : review.py --model deepreviewer-7b:std --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[16:44:34] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench
+[16:44:34] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench
+[16:44:35] GPU0: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench
+[16:44:35] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench
+[16:44:36] GPU0: gate.py --base qwen3-32b-awq:ais --data bench_iclr25 --tag _bench
+[16:44:36] exit 0 : gate.py --base qwen3-32b-awq:ais --data bench_iclr25 --tag _bench
+[16:44:38] GPU0: gate.py --base deepreviewer-7b:std --data bench_iclr25 --tag _bench
+[16:44:38] exit 0 : gate.py --base deepreviewer-7b:std --data bench_iclr25 --tag _bench
+[16:44:47] GPU0: gate.py --base qwen3-32b-awq:think+verify+s10
+[16:46:36] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10
+[16:46:36] GPU0: gate.py --base deepreviewer-7b:fast
+[17:14:48] exit 0 : gate.py --base deepreviewer-7b:fast
+[17:14:49] GPU1: gate.py --base qwen3-32b-awq:ais
+[17:35:44] exit 0 : gate.py --base qwen3-32b-awq:ais
+[17:35:58] GPU2: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[21:04:52] exit 0 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[21:04:52] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench
+[21:05:43] bench gate qwen3-32b-awq:s10
+[21:30:58] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench
+[21:30:58] GPU1: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench
+[21:54:47] bench gate deepreviewer-7b:fast
+[21:57:06] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench
+[21:57:07] GPU1: gate.py --base qwen3-32b-awq:ais --data bench_iclr25 --tag _bench
+[22:20:37] bench gate qwen3-32b-awq:ais
+[22:23:34] exit 0 : gate.py --base qwen3-32b-awq:ais --data bench_iclr25 --tag _bench
+[22:23:35] GPU1: gate.py --base deepreviewer-7b:std --data bench_iclr25 --tag _bench
+[22:46:29] bench gate deepreviewer-7b:std
+[22:49:48] exit 0 : gate.py --base deepreviewer-7b:std --data bench_iclr25 --tag _bench
+[22:50:01] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10
+[23:03:28] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10
+[23:03:28] GPU1: gate.py --base deepreviewer-7b:fast
+[23:12:00] bench gate qwen3-32b-awq:think+verify+s10
+[23:16:59] exit 0 : gate.py --base deepreviewer-7b:fast
+[23:16:59] GPU1: gate.py --base qwen3-32b-awq:ais
+[23:30:29] exit 0 : gate.py --base qwen3-32b-awq:ais
+[23:30:29] GPU1: judge.py --judge qwen3-32b-awq
+[23:37:42] bench gate done
+[00:55:33] exit 0 : judge.py --judge qwen3-32b-awq
+[01:24:15] GPU0: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_dev25 --tag _dev

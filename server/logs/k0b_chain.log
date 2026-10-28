@@ -1,0 +1,6 @@
+[23:17:53] GPU1: review.py --model qwen3-32b-awq:think
+[23:33:11] exit 0 : review.py --model qwen3-32b-awq:think
+[23:33:11] GPU1: review.py --model qwen3-32b-awq:verify
+[23:44:29] exit 0 : review.py --model qwen3-32b-awq:verify
+[23:44:29] GPU1: review.py --model qwen3-32b-awq:think+verify
+[00:00:30] exit 0 : review.py --model qwen3-32b-awq:think+verify

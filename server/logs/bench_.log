@@ -1,0 +1,3 @@
+usage: review.py [-h] --model MODEL [--n N] [--versions VERSIONS]
+                 [--allow-unchecked] [--data DATA] [--tag TAG]
+review.py: error: argument --model: expected one argument

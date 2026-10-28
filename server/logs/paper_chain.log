@@ -8,3 +8,7 @@
 [02:52:04] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag --k 1
 [02:52:04] GPU0: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1
 [02:52:17] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1
+[02:57:17] GPU2: gate.py --base deepreviewer-7b:fast --data versions --tag --k 1 --checker qwen3-8b
+[02:57:17] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag --k 1 --checker qwen3-8b
+[02:57:17] GPU2: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b
+[02:57:31] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b

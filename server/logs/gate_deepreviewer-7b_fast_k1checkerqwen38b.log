@@ -1,0 +1,5 @@
+usage: gate.py [-h] --base BASE [--audit AUDIT] [--data DATA] [--tag TAG]
+               [--checker CHECKER] [--k K] [--mode {cap,minus}]
+               [--delta DELTA] [--no-quote] [--no-reported]
+               [--audit-samples AUDIT_SAMPLES]
+gate.py: error: argument --tag: expected one argument

@@ -151,3 +151,294 @@ cont       48  0.85  0.02      1.00   0.00 [0.00,0.00]   -1.12 [-1.34,-0.95]/dis
   return _nanquantile_unchecked(
 /diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
   return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+
+leak       50  0.54  0.02      1.00   0.00 [0.00,0.00]   -0.63 [-0.84,-0.43]
+stat       37  0.76  0.00      1.00   0.00 [0.00,0.00]   -1.11 [-1.31,-0.91]
+base1      18  0.44  0.00      1.00   0.00 [0.00,0.00]   -1.06 [-1.43,-0.71]
+base2      28  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.61 [-0.90,-0.26]
+cont1      25  0.84  0.00      1.00   0.00 [0.00,0.00]   -0.97 [-1.35,-0.64]
+cont2      23  0.87  0.03      1.00   0.00 [0.00,0.00]   -1.25 [-1.43,-1.09]
+leak1      18  1.00  0.00      1.00   0.00 [0.00,0.00]   -1.31 [-1.35,-1.26]
+leak2      20  0.40  0.05      1.00   0.00 [0.00,0.00]   -0.42 [-0.68,-0.08]
+leak3      12  0.08  0.00      1.00   0.00 [0.00,0.00]   -0.20 [-0.48,+0.07]
+stat1      15  0.87  0.00      1.00   0.00 [0.00,0.00]   -1.36 [-1.44,-1.30]
+stat2      22  0.68  0.00      1.00   0.00 [0.00,0.00]   -0.95 [-1.25,-0.64]
+
+=== deepreviewer-7b:fast+gate_k2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.77,-0.31]
+cont       48  0.75  0.02      1.00   0.00 [0.00,0.00]   -1.09 [-1.31,-0.89]
+leak       50  0.44  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.75,-0.30]
+stat       37  0.62  0.00      1.00   0.00 [0.00,0.00]   -0.77 [-1.04,-0.53]
+base1      18  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.42 [-0.75,-0.06]
+base2      28  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.61 [-0.90,-0.26]
+cont1      25  0.76  0.00      1.00   0.00 [0.00,0.00]   -1.03 [-1.43,-0.64]
+cont2      23  0.74  0.03      1.00   0.00 [0.00,0.00]   -1.13 [-1.42,-0.89]
+leak1      18  1.00  0.00      1.00   0.00 [0.00,0.00]   -1.31 [-1.35,-1.26]
+leak2      20  0.20  0.00      1.00   0.00 [0.00,0.00]   -0.37 [-0.63,-0.03]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.80  0.00      1.00   0.00 [0.00,0.00]   -1.14 [-1.44,-0.83]
+stat2      22  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.55 [-0.86,-0.23]
+
+=== deepreviewer-7b:fast+gate_k2_aud8b ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.30  0.00      1.00   0.00 [0.00,0.00]   -0.43 [-0.68,-0.20]
+cont       48  0.71  0.02      1.00   0.00 [0.00,0.00]   -1.04 [-1.26,-0.84]
+leak       50  0.28  0.00      1.00   0.00 [0.00,0.00]   -0.35 [-0.53,-0.18]
+stat       37  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.65 [-0.91,-0.40]
+base1      18  0.00  0.00       nan   nan [nan,nan]   -0.16 [-0.30,-0.02]
+base2      28  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.57 [-0.92,-0.21]
+cont1      25  0.44  0.00      1.00   0.00 [0.00,0.00]   -0.65 [-1.06,-0.24]
+cont2      23  1.00  0.03      1.00   0.00 [0.00,0.00]   -1.37 [-1.45,-1.28]
+leak1      18  0.78  0.00      1.00   0.00 [0.00,0.00]   -1.13 [-1.34,-0.90]
+leak2      20  0.00  0.00       nan   nan [nan,nan]   -0.07 [-0.18,+0.04]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.60  0.00      1.00   0.00 [0.00,0.00]   -0.91 [-1.38,-0.44]
+stat2      22  0.36  0.00      1.00   0.00 [0.00,0.00]   -0.50 [-0.81,-0.16]
+
+=== deepreviewer-7b:fast+gate_k2_chk8b ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.30 [-0.50,-0.07]
+cont       48  0.79  0.02      1.00   0.00 [0.00,0.00]   -1.10 [-1.31,-0.91]
+leak       50  0.34  0.00      1.00   0.00 [0.00,0.00]   -0.43 [-0.65,-0.21]
+stat       37  0.32  0.00      1.00   0.00 [0.00,0.00]   -0.51 [-0.77,-0.25]
+base1      18  0.00  0.00       nan   nan [nan,nan]   -0.16 [-0.30,-0.02]
+base2      28  0.29  0.00      1.00   0.00 [0.00,0.00]   -0.36 [-0.67,-0.04]
+cont1      25  0.84  0.00      1.00   0.00 [0.00,0.00]   -1.18 [-1.50,-0.87]
+cont2      23  0.74  0.03      1.00   0.00 [0.00,0.00]   -1.03 [-1.33,-0.75]
+leak1      18  0.78  0.00      1.00   0.00 [0.00,0.00]   -0.94 [-1.33,-0.63]
+leak2      20  0.10  0.00      1.00   0.00 [0.00,0.00]   -0.22 [-0.46,+0.04]
+leak3      12  0.08  0.00      1.00   0.00 [0.00,0.00]   -0.20 [-0.48,+0.07]
+stat1      15  0.40  0.00      1.00   0.00 [0.00,0.00]   -0.74 [-1.10,-0.14]
+stat2      22  0.27  0.00      1.00   0.00 [0.00,0.00]   -0.36 [-0.65,+0.02]
+
+=== deepreviewer-7b:fast+gate_k2_m2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.38 [-0.55,-0.21]
+cont       48  0.75  0.02      1.00   0.00 [0.00,0.00]   -0.75 [-0.92,-0.60]
+leak       50  0.44  0.00      1.00   0.00 [0.00,0.00]   -0.34 [-0.49,-0.19]
+stat       37  0.62  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.72,-0.37]
+base1      18  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.31 [-0.54,-0.06]
+base2      28  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.41 [-0.64,-0.14]
+cont1      25  0.76  0.00      1.00   0.00 [0.00,0.00]   -0.73 [-1.00,-0.46]
+cont2      23  0.74  0.03      1.00   0.00 [0.00,0.00]   -0.76 [-0.98,-0.56]
+leak1      18  1.00  0.00      1.00   0.00 [0.00,0.00]   -0.84 [-0.95,-0.75]
+leak2      20  0.20  0.00      1.00   0.00 [0.00,0.00]   -0.25 [-0.42,-0.03]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.80  0.00      1.00   0.00 [0.00,0.00]   -0.80 [-1.07,-0.50]
+stat2      22  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.38 [-0.59,-0.16]
+
+=== deepreviewer-7b:fast+gate_k2_noquote ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.77,-0.31]
+cont       48  0.79  0.02      1.00   0.00 [0.00,0.00]   -1.15 [-1.35,-0.98]
+leak       50  0.44  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.75,-0.30]
+stat       37  0.62  0.00      1.00   0.00 [0.00,0.00]   -0.77 [-1.04,-0.53]
+base1      18  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.42 [-0.75,-0.06]
+base2      28  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.61 [-0.90,-0.26]
+cont1      25  0.84  0.00      1.00   0.00 [0.00,0.00]   -1.18 [-1.50,-0.87]
+cont2      23  0.74  0.03      1.00   0.00 [0.00,0.00]   -1.13 [-1.42,-0.89]
+leak1      18  1.00  0.00      1.00   0.00 [0.00,0.00]   -1.31 [-1.35,-1.26]
+leak2      20  0.20  0.00      1.00   0.00 [0.00,0.00]   -0.37 [-0.63,-0.03]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.80  0.00      1.00   0.00 [0.00,0.00]   -1.14 [-1.44,-0.83]
+stat2      22  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.55 [-0.86,-0.23]
+
+=== deepreviewer-7b:fast+gate_k2_noreported ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.77,-0.31]
+cont       48  0.75  0.02      1.00   0.00 [0.00,0.00]   -1.09 [-1.31,-0.89]
+leak       50  0.44  0.00      1.00   0.00 [0.00,0.00]   -0.54 [-0.75,-0.30]
+stat       37  0.62  0.00      1.00   0.00 [0.00,0.00]   -0.77 [-1.04,-0.53]
+base1      18  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.42 [-0.75,-0.06]
+base2      28  0.46  0.00      1.00   0.00 [0.00,0.00]   -0.61 [-0.90,-0.26]
+cont1      25  0.76  0.00      1.00   0.00 [0.00,0.00]   -1.03 [-1.43,-0.64]
+cont2      23  0.74  0.03      1.00   0.00 [0.00,0.00]   -1.13 [-1.42,-0.89]
+leak1      18  1.00  0.00      1.00   0.00 [0.00,0.00]   -1.31 [-1.35,-1.26]
+leak2      20  0.20  0.00      1.00   0.00 [0.00,0.00]   -0.37 [-0.63,-0.03]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.80  0.00      1.00   0.00 [0.00,0.00]   -1.14 [-1.44,-0.83]
+stat2      22  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.55 [-0.86,-0.23]
+
+=== deepreviewer-7b:fast+gate_k3 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.15  0.00      1.00   0.00 [0.00,0.00]   -0.24 [-0.42,-0.02]
+cont       48  0.46  0.02      1.00   0.00 [0.00,0.00]   -0.66 [-0.93,-0.43]
+leak       50  0.36  0.00      1.00   0.00 [0.00,0.00]   -0.42 [-0.64,-0.21]
+stat       37  0.19  0.00      1.00   0.00 [0.00,0.00]   -0.27 [-0.48,-0.07]
+base1      18  0.00  0.00       nan   nan [nan,nan]   -0.16 [-0.30,-0.02]
+base2      28  0.25  0.00      1.00   0.00 [0.00,0.00]   -0.27 [-0.55,+0.00]/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+
+cont1      25  0.56  0.00      1.00   0.00 [0.00,0.00]   -0.77 [-1.20,-0.37]
+cont2      23  0.35  0.03      1.00   0.00 [0.00,0.00]   -0.58 [-0.88,-0.31]
+leak1      18  0.89  0.00      1.00   0.00 [0.00,0.00]   -1.13 [-1.34,-0.90]
+leak2      20  0.10  0.00      1.00   0.00 [0.00,0.00]   -0.22 [-0.46,+0.04]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.33  0.00      1.00   0.00 [0.00,0.00]   -0.46 [-0.92,-0.01]
+stat2      22  0.09  0.00      1.00   0.00 [0.00,0.00]   -0.15 [-0.32,+0.05]
+
+=== deepreviewer-7b:fast+gate_k3_m2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       46  0.15  0.00      1.00   0.00 [0.00,0.00]   -0.18 [-0.34,-0.01]
+cont       48  0.46  0.02      1.00   0.00 [0.00,0.00]   -0.46 [-0.65,-0.29]
+leak       50  0.36  0.00      1.00   0.00 [0.00,0.00]   -0.27 [-0.41,-0.12]
+stat       37  0.19  0.00      1.00   0.00 [0.00,0.00]   -0.20 [-0.37,-0.04]
+base1      18  0.00  0.00       nan   nan [nan,nan]   -0.16 [-0.30,-0.02]
+base2      28  0.25  0.00      1.00   0.00 [0.00,0.00]   -0.19 [-0.42,+0.07]
+cont1      25  0.56  0.00      1.00   0.00 [0.00,0.00]   -0.55 [-0.86,-0.26]
+cont2      23  0.35  0.03      1.00   0.00 [0.00,0.00]   -0.39 [-0.60,-0.19]
+leak1      18  0.89  0.00      1.00   0.00 [0.00,0.00]   -0.72 [-0.89,-0.55]
+leak2      20  0.10  0.00      1.00   0.00 [0.00,0.00]   -0.16 [-0.33,+0.04]
+leak3      12  0.00  0.00       nan   nan [nan,nan]   +0.07 [+0.01,+0.14]
+stat1      15  0.33  0.00      1.00   0.00 [0.00,0.00]   -0.35 [-0.70,-0.01]
+stat2      22  0.09  0.00      1.00   0.00 [0.00,0.00]   -0.11 [-0.26,+0.05]
+
+=== openreviewer-8b ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.00  0.00       nan   nan [nan,nan]   +0.14 [+0.01,+0.26]
+cont       71  0.00  0.00       nan   nan [nan,nan]   +0.02 [-0.12,+0.15]
+leak       78  0.00  0.00       nan   nan [nan,nan]   +0.02 [-0.12,+0.18]
+stat       54  0.02  0.00      0.00   0.00 [0.00,0.00]   +0.02 [-0.18,+0.20]
+base1      24  0.00  0.00       nan   nan [nan,nan]   +0.30 [+0.00,+0.56]
+base2      36  0.00  0.00       nan   nan [nan,nan]   +0.05 [-0.07,+0.17]
+cont1      36  0.00  0.00       nan   nan [nan,nan]   +0.04 [-0.15,+0.24]
+cont2      35  0.00  0.00       nan   nan [nan,nan]   -0.01 [-0.19,+0.18]
+leak1      30  0.00  0.00       nan   nan [nan,nan]   -0.07 [-0.30,+0.18]
+leak2      30  0.00  0.00       nan   nan [nan,nan]   +0.19 [-0.05,+0.42]
+leak3      18  0.00  0.00       nan   nan [nan,nan]   -0.12 [-0.41,+0.29]
+stat1      24  0.04  0.00      0.00   0.00 [0.00,0.00]   +0.02 [-0.35,+0.40]
+stat2      30  0.00  0.00       nan   nan [nan,nan]   +0.01 [-0.18,+0.22]
+
+=== openreviewer-8b+gate_k1 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.45  0.00      1.00   0.00 [0.00,0.00]   -0.62 [-0.88,-0.35]
+cont       71  0.87  0.00      1.00   0.00 [0.00,0.00]   -1.06 [-1.27,-0.89]
+leak       78  0.58  0.01      1.00   0.00 [0.00,0.00]   -0.66 [-0.90,-0.40]
+stat       54  0.78  0.00      1.00   0.00 [0.00,0.00]   -1.12 [-1.32,-0.92]
+base1      24  0.38  0.00      1.00   0.00 [0.00,0.00]   -0.57 [-1.14,-0.07]
+base2      36  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.65 [-0.96,-0.32]
+cont1      36  0.83  0.00      1.00   0.00 [0.00,0.00]   -0.87 [-1.19,-0.59]
+cont2      35  0.91  0.00      1.00   0.00 [0.00,0.00]   -1.22 [-1.42,-1.06]
+leak1      30  1.00  0.00      1.00   0.00 [0.00,0.00]   -1.46 [-1.60,-1.30]
+leak2      30  0.40  0.03      1.00   0.00 [0.00,0.00]   -0.21 [-0.51,+0.15]
+leak3      18  0.17  0.00      1.00   0.00 [0.00,0.00]   -0.35 [-0.63,-0.00]
+stat1      24  0.88  0.00      1.00   0.00 [0.00,0.00]   -1.43 [-1.70,-1.19]
+stat2      30  0.70  0.00      1.00   0.00 [0.00,0.00]   -0.93 [-1.19,-0.69]
+
+=== openreviewer-8b+gate_k1_m2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.45  0.00      1.00   0.26 [0.14,0.33]   -0.33 [-0.51,-0.14]
+cont       71  0.87  0.00      1.00   0.18 [0.08,0.29]   -0.71 [-0.91,-0.55]
+leak       78  0.58  0.00      1.00   0.22 [0.10,0.37]   -0.42 [-0.59,-0.23]
+stat       54  0.78  0.00      1.00   0.26 [0.15,0.38]   -0.70 [-0.90,-0.50]
+base1      24  0.38  0.00      1.00   0.22 [0.00,0.33]   -0.21 [-0.59,+0.15]
+base2      36  0.50  0.00      1.00   0.28 [0.17,0.33]   -0.40 [-0.63,-0.17]
+cont1      36  0.83  0.00      1.00   0.20 [0.04,0.43]   -0.58 [-0.86,-0.30]
+cont2      35  0.91  0.00      1.00   0.16 [0.03,0.30]   -0.82 [-1.04,-0.59]
+leak1      30  1.00  0.00      1.00   0.20 [0.07,0.35]   -0.96 [-1.19,-0.71]
+leak2      30  0.40  0.00      1.00   0.25 [0.00,0.78]   -0.07 [-0.32,+0.17]
+leak3      18  0.17  0.00      1.00   0.33 [0.33,0.33]   -0.27 [-0.54,+0.00]
+stat1      24  0.88  0.00      1.00   0.29 [0.10,0.48]   -0.86 [-1.23,-0.49]
+stat2      30  0.70  0.00      1.00   0.24 [0.11,0.33]   -0.61 [-0.83,-0.35]
+
+=== openreviewer-8b+gate_k2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.37 [-0.65,-0.06]
+cont       71  0.79  0.00      1.00   0.00 [0.00,0.00]   -1.06 [-1.25,-0.89]
+leak       78  0.42  0.00      1.00   0.00 [0.00,0.00]   -0.48 [-0.74,-0.18]
+stat       54  0.56  0.00      1.00   0.00 [0.00,0.00]   -0.81 [-1.09,-0.56]
+base1      24  0.12  0.00      1.00   0.00 [0.00,0.00]   +0.13 [-0.30,+0.53]
+base2      36  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.65 [-0.96,-0.32]
+cont1      36  0.75  0.00      1.00   0.00 [0.00,0.00]   -0.96 [-1.28,-0.65]
+cont2      35  0.83  0.00      1.00   0.00 [0.00,0.00]   -1.14 [-1.35,-0.95]
+leak1      30  0.90  0.00      1.00   0.00 [0.00,0.00]   -1.26 [-1.60,-0.93]
+leak2      30  0.20  0.00      1.00   0.00 [0.00,0.00]   -0.06 [-0.42,+0.35]
+leak3      18  0.00  0.00       nan   nan [nan,nan]   -0.12 [-0.41,+0.29]
+stat1      24  0.75  0.00      1.00   0.00 [0.00,0.00]   -1.21 [-1.58,-0.84]
+stat2      30  0.40  0.00      1.00   0.00 [0.00,0.00]   -0.58 [-0.89,-0.28]
+
+=== openreviewer-8b+gate_k2_m2 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.35  0.00      1.00   0.24 [0.11,0.33]   -0.19 [-0.39,+0.01]
+cont       71  0.79  0.00      1.00   0.20 [0.09,0.33]   -0.67 [-0.84,-0.52]
+leak       78  0.42  0.00      1.00   0.15 [0.03,0.30]   -0.31 [-0.51,-0.07]
+stat       54  0.56  0.00      1.00   0.30 [0.16,0.44]   -0.48 [-0.71,-0.26]
+base1      24  0.12  0.00      1.00   0.00 [0.00,0.00]   +0.17 [-0.22,+0.53]
+base2      36  0.50  0.00      1.00   0.28 [0.17,0.33]   -0.40 [-0.63,-0.17]
+cont1      36  0.75  0.00      1.00   0.22 [0.05,0.48]   -0.58 [-0.77,-0.35]
+cont2      35  0.83  0.00      1.00   0.17 [0.04,0.31]   -0.75 [-0.95,-0.55]
+leak1      30  0.90  0.00      1.00   0.19 [0.04,0.35]   -0.85 [-1.19,-0.49]
+leak2      30  0.20  0.00      1.00   0.00 [0.00,0.00]   +0.01 [-0.30,+0.35]
+leak3      18  0.00  0.00       nan   nan [nan,nan]   -0.12 [-0.41,+0.29]
+stat1      24  0.75  0.00      1.00   0.33 [0.11,0.54]   -0.72 [-1.19,-0.27]
+stat2      30  0.40  0.00      1.00   0.25 [0.00,0.33]   -0.34 [-0.53,-0.13]
+
+=== openreviewer-8b+gate_k3 ===   (pass line 3.22)
+cell       nF   det   fpN fatal|det           pass|det                  F-N
+base       60  0.15  0.00      1.00   0.00 [0.00,0.00]   -0.07 [-0.28,+0.15]
+cont       71  0.45  0.00      1.00   0.00 [0.00,0.00]   -0.63 [-0.90,-0.37]
+leak       78  0.35  0.00      1.00   0.00 [0.00,0.00]   -0.36 [-0.62,-0.07]
+stat       54  0.24  0.00      0.92   0.00 [0.00,0.00]   -0.28 [-0.53,-0.02]
+base1      24  0.00  0.00       nan   nan [nan,nan]   +0.30 [+0.00,+0.56]
+base2      36  0.25  0.00      1.00   0.00 [0.00,0.00]   -0.28 [-0.53,-0.02]
+cont1      36  0.50  0.00      1.00   0.00 [0.00,0.00]   -0.76 [-1.12,-0.42]
+cont2      35  0.40  0.00      1.00   0.00 [0.00,0.00]   -0.52 [-0.86,-0.23]
+leak1      30  0.80  0.00      1.00   0.00 [0.00,0.00]   -1.06 [-1.59,-0.52]
+leak2      30  0.10  0.00      1.00   0.00 [0.00,0.00]   +0.06 [-0.25,+0.42]
+leak3      18  0.00  0.00       nan   nan [nan,nan]   -0.12 [-0.41,+0.29]/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1406: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(

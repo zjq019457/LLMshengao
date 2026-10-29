@@ -1,0 +1,124 @@
+180 manuscripts x 3 samples with openreviewer-8b
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [api_utils.py:286] non-default args: {'trust_remote_code': True, 'max_model_len': 32768, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.38, 'disable_log_stats': True, 'enforce_eager': True, 'model': '/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models/Llama-OpenReviewer-8B'}
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [model.py:733] Resolved architecture: LlamaForCausalLM
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [model.py:2152] Using max model len 32768
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [scheduler.py:307] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(MainProcess pid=1808906) WARNING 10-28 18:45:09 [vllm.py:1703] Enforce eager set, disabling torch.compile, CUDAGraphs, and JIT kernel warmup. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none and --kernel_config.enable_jit_warmup=False
+(MainProcess pid=1808906) WARNING 10-28 18:45:09 [vllm.py:1727] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=1808906) WARNING 10-28 18:45:09 [flashinfer.py:99] FlashInfer kernels are disabled: flashinfer-cubin is not installed and nvcc (CUDA_HOME, CUDA_PATH, PATH or /usr/local/cuda) or ninja (PATH) is missing. Set CUDA_HOME to a CUDA toolkit and put ninja on PATH, or run `vllm download-kernels`.
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [vllm.py:1929] Cudagraph is disabled under eager mode
+(MainProcess pid=1808906) INFO 10-28 18:45:09 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=1809592) INFO 10-28 18:45:13 [core.py:133] Initializing a V1 LLM engine (v0.32.0) with config: model='/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models/Llama-OpenReviewer-8B', speculative_config=None, tokenizer='/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models/Llama-OpenReviewer-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models/Llama-OpenReviewer-8B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=1809592) INFO 10-28 18:45:16 [parallel_state.py:1906] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_97baea520a1e440fa15ebad7cdf0dd7a backend=nccl
+(EngineCore pid=1809592) INFO 10-28 18:45:16 [parallel_state.py:2350] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=1809592) INFO 10-28 18:45:16 [gpu_worker.py:518] Using V2 Model Runner
+(EngineCore pid=1809592) INFO 10-28 18:45:22 [model_runner.py:392] Loading model from scratch...
+(EngineCore pid=1809592) INFO 10-28 18:45:25 [cuda.py:506] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=1809592) INFO 10-28 18:45:25 [flash_attn.py:1117] Using FlashAttention version 2
+(EngineCore pid=1809592) INFO 10-28 18:45:39 [base_loader.py:82] Initializing model took 17.398176 seconds
+(EngineCore pid=1809592) INFO 10-28 18:45:39 [weight_utils.py:1108] Filesystem type for checkpoints: EXT4. Checkpoint size: 14.96 GiB. Available RAM: 447.83 GiB.
+(EngineCore pid=1809592) INFO 10-28 18:45:39 [weight_utils.py:1131] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.17it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.08it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.06it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.43it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.28it/s]
+
+(EngineCore pid=1809592) INFO 10-28 18:45:43 [default_loader.py:501] Loading weights took 3.15 seconds
+(EngineCore pid=1809592) INFO 10-28 18:45:44 [model_runner.py:424] Model loading took 15.0 GiB memory and 22.488123 seconds
+(EngineCore pid=1809592) INFO 10-28 18:45:44 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=1809592) INFO 10-28 18:45:44 [torch_utils.py:295] Reducing Torch threads from 64 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=1809592) INFO 10-28 18:45:44 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=1809592) INFO 10-28 18:45:51 [gpu_worker.py:759] Available KV cache memory: 1.31 GiB
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510] EngineCore failed to start.
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510] Traceback (most recent call last):
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1482, in run_engine_core
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     return func(*args, **kwargs)
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1194, in __init__
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     super().__init__(
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 157, in __init__
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     return func(*args, **kwargs)
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 326, in _initialize_kv_caches
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2642, in get_kv_cache_configs
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     _check_enough_kv_cache_memory(
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]   File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1030, in _check_enough_kv_cache_memory
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510]     raise ValueError(
+(EngineCore pid=1809592) ERROR 10-28 18:45:51 [core.py:1510] ValueError: To serve at least one request with the model's max seq len (32768), (4.0 GiB KV cache is needed, which is larger than the available KV cache memory (1.31 GiB). Based on the available memory, the estimated maximum model length is 10704. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+Process EngineCore:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1514, in run_engine_core
+    raise e
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1482, in run_engine_core
+    engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1194, in __init__
+    super().__init__(
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 157, in __init__
+    kv_cache_config = self._initialize_kv_caches(vllm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 326, in _initialize_kv_caches
+    kv_cache_configs = get_kv_cache_configs(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2642, in get_kv_cache_configs
+    _check_enough_kv_cache_memory(
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1030, in _check_enough_kv_cache_memory
+    raise ValueError(
+ValueError: To serve at least one request with the model's max seq len (32768), (4.0 GiB KV cache is needed, which is larger than the available KV cache memory (1.31 GiB). Based on the available memory, the estimated maximum model length is 10704. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(MainProcess pid=1808906) INFO 10-28 18:45:51 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCore
+Traceback (most recent call last):
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/scripts/review.py", line 260, in <module>
+    main(a.model, a.n, a.versions, a.allow_unchecked, a.data, a.tag)
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/scripts/review.py", line 179, in main
+    llm = LLM(model_key)
+          ^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/scripts/common.py", line 54, in __init__
+    self.llm = _VLLM(model=MODELS[model_key], max_model_len=max_len,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 342, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 191, in from_engine_args
+    return cls(
+           ^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 116, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 126, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 925, in __init__
+    super().__init__(
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 682, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1351, in launch_core_engines
+    wait_for_engine_startup(
+  File "/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1431, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

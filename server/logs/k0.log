@@ -265,3 +265,18 @@
 [18:44:42] exit 0 : gate.py --base qwen3-32b-awq:ais --data bench_dev25 --tag _dev --k 2 --mode minus
 [18:44:43] GPU1: gate.py --base qwen3-32b-awq:ais --data bench_dev25 --tag _dev --k 3 --mode minus (try 1)
 [18:44:44] exit 0 : gate.py --base qwen3-32b-awq:ais --data bench_dev25 --tag _dev --k 3 --mode minus
+[18:44:44] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 1 (try 1)
+[18:44:45] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 1
+[18:44:46] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 2 (try 1)
+[18:44:46] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 2
+[18:44:47] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 3 (try 1)
+[18:44:47] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 3
+[18:44:48] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 1 --mode minus (try 1)
+[18:44:49] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 1 --mode minus
+[18:44:49] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 2 --mode minus (try 1)
+[18:44:50] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 2 --mode minus
+[18:44:51] GPU1: gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 3 --mode minus (try 1)
+[18:44:51] exit 0 : gate.py --base qwen3-32b-awq:think+verify+s10 --data bench_dev25 --tag _dev --k 3 --mode minus
+[18:44:52] GPU1: gate.py --base deepreviewer-7b:fast --data bench_iclr24 --tag _bench24 --k 1 (try 1)
+[18:44:58] extra GPU1: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[18:45:54] extra exit 1 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev

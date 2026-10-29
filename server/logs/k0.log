@@ -494,3 +494,25 @@
 [21:18:31] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --checker qwen3-8b (try 1)
 [21:18:32] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --checker qwen3-8b
 [21:18:32] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --audit qwen3-8b:think+audit (try 1)
+[21:32:24] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --audit qwen3-8b:think+audit
+[21:32:24] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --audit qwen3-8b:think+audit (try 1)
+[21:32:25] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --audit qwen3-8b:think+audit
+[21:32:26] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --no-quote (try 1)
+[21:32:26] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --no-quote
+[21:32:27] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --no-reported (try 1)
+[21:32:27] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --no-reported
+[21:32:28] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --audit-samples 1 (try 1)
+[21:32:28] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --audit-samples 1
+[21:32:29] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --checker qwen3-8b (try 1)
+[21:32:29] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --checker qwen3-8b
+[21:32:30] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --no-quote (try 1)
+[21:32:30] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --no-quote
+[21:32:31] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --no-reported (try 1)
+[21:32:32] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --no-reported
+[21:32:32] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --checker qwen3-8b (try 1)
+[21:32:33] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --checker qwen3-8b
+[21:32:33] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --audit qwen3-8b:think+audit (try 1)
+[21:32:34] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 1 --audit qwen3-8b:think+audit
+[21:32:34] GPU0: gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --audit qwen3-8b:think+audit (try 1)
+[21:32:35] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --audit qwen3-8b:think+audit
+[21:34:51] GPU0: judge.py --judge qwen3-32b-awq (try 1)

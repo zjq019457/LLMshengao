@@ -229,3 +229,4 @@
 [17:25:00] exit 0 : review.py --model qwen3-32b-awq:think+verify+grule+s10 --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
 [17:25:01] GPU1: gate.py --base deepreviewer-7b:fast --data bench_dev25 --tag _dev --k 1 (try 1)
 [17:27:26] exit 1 : gate.py --base deepreviewer-7b:fast --data bench_dev25 --tag _dev --k 1
+[17:32:26] GPU1: gate.py --base deepreviewer-7b:fast --data bench_dev25 --tag _dev --k 1 (try 2)

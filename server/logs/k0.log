@@ -575,3 +575,7 @@
 [08:52:57] quality exit 0 : meta.py --data bench_dev25 --tag _dev
 [08:52:57] quality GPU2: meta.py --data bench_iclr25 --tag _bench (try 1)
 [08:54:54] quality GPU0: or n16 bench24 done
+[09:17:51] quality exit 0 : review.py --model openreviewer-8b:n16 --n 16 --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[09:17:53] quality GPU1: review.py --model openreviewer-8b:n16 --n 16 --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[09:20:40] quality exit 0 : meta.py --data bench_iclr25 --tag _bench
+[09:20:41] quality GPU2: meta.py --data bench_iclr24 --tag _bench24 (try 1)

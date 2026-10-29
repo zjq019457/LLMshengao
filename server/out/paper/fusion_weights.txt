@@ -1,0 +1,7 @@
+fit on bench_dev25 only
+deepreviewer-7b:fast+fusion (M3a): alpha=30  score:deepreviewer-7b:fast=+0.358  n_issues=-0.112  n_reported=+0.066  n_fatal=-0.169  n_verified=-0.071  votes=-0.016
+qwen3-32b-awq:s10+fusion (M3a): alpha=30  score:qwen3-32b-awq:s10=+0.220  n_issues=-0.129  n_reported=+0.097  n_fatal=-0.218  n_verified=-0.061  votes=-0.048
+qwen3-32b-awq:ais+fusion (M3a): alpha=100  score:qwen3-32b-awq:ais=+0.119  n_issues=-0.104  n_reported=+0.047  n_fatal=-0.172  n_verified=-0.033  votes=-0.028
+openreviewer-8b+fusion (M3a): alpha=30  score:openreviewer-8b=+0.327  n_issues=-0.123  n_reported=+0.043  n_fatal=-0.188  n_verified=-0.015  votes=-0.052
+ensemble (no audit): alpha=30  score:deepreviewer-7b:fast=+0.300  score:qwen3-32b-awq:s10=+0.045  score:qwen3-32b-awq:ais=+0.057  score:openreviewer-8b=+0.271
+ensemble+fusion (M3b): alpha=30  score:deepreviewer-7b:fast=+0.271  score:qwen3-32b-awq:s10=+0.058  score:qwen3-32b-awq:ais=+0.018  score:openreviewer-8b=+0.244  n_issues=-0.097  n_reported=+0.046  n_fatal=-0.129  n_verified=-0.050  votes=-0.035

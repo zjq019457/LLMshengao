@@ -517,3 +517,54 @@
 [21:32:35] exit 0 : gate.py --base qwen3-32b-awq:ais --data versions --tag  --k 2 --audit qwen3-8b:think+audit
 [21:34:51] GPU0: judge.py --judge qwen3-32b-awq (try 1)
 [22:02:43] exit 0 : judge.py --judge qwen3-32b-awq
+[23:31:34] paper stage done
+[23:35:36] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 1 (try 1)
+[23:35:36] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 1
+[23:35:37] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 2 (try 1)
+[23:35:37] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 2
+[23:35:38] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 3 (try 1)
+[23:35:38] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 3
+[23:35:38] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 1 --mode minus (try 1)
+[23:35:38] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 1 --mode minus
+[23:35:39] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 2 --mode minus (try 1)
+[23:35:40] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 2 --mode minus
+[23:35:40] extra GPU2: gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 3 --mode minus (try 1)
+[23:35:40] extra exit 0 : gate.py --base openreviewer-8b --data bench_dev25 --tag _dev --k 3 --mode minus
+[23:35:40] extra GPU2: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 1 (try 1)
+[23:35:40] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 1
+[23:35:41] extra GPU2: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 2 (try 1)
+[23:35:42] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 2
+[23:35:42] extra GPU2: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 3 (try 1)
+[23:35:42] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 3
+[23:35:42] extra GPU2: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 1 --mode minus (try 1)
+[23:35:43] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 1 --mode minus
+[23:35:44] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 2 --mode minus (try 1)
+[23:35:44] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 2 --mode minus
+[23:35:44] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 3 --mode minus (try 1)
+[23:35:45] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr25 --tag _bench --k 3 --mode minus
+[23:35:45] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 1 (try 1)
+[23:35:45] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 1
+[23:35:46] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 2 (try 1)
+[23:35:46] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 2
+[23:35:46] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 3 (try 1)
+[23:35:47] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 3
+[23:35:47] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 1 --mode minus (try 1)
+[23:35:47] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 1 --mode minus
+[23:35:48] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 2 --mode minus (try 1)
+[23:35:48] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 2 --mode minus
+[23:35:48] extra GPU1: gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 3 --mode minus (try 1)
+[23:35:49] extra exit 0 : gate.py --base openreviewer-8b --data bench_iclr24 --tag _bench24 --k 3 --mode minus
+[23:35:49] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 1 (try 1)
+[23:35:49] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 1
+[23:35:50] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 2 (try 1)
+[23:35:51] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 2
+[23:35:51] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 3 (try 1)
+[23:35:51] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 3
+[23:35:51] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 1 --mode minus (try 1)
+[23:35:52] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 1 --mode minus
+[23:35:53] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 2 --mode minus (try 1)
+[23:35:53] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 2 --mode minus
+[23:35:53] extra GPU1: gate.py --base openreviewer-8b --data versions --tag  --k 3 --mode minus (try 1)
+[23:35:53] extra exit 0 : gate.py --base openreviewer-8b --data versions --tag  --k 3 --mode minus
+[23:38:29] extra GPU1: judge.py --judge qwen3-32b-awq (try 1)
+[23:45:34] extra exit 0 : judge.py --judge qwen3-32b-awq

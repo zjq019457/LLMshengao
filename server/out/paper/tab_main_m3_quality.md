@@ -1,0 +1,22 @@
+| split | base | gate | n | AUC | Spearman | MAE | acc | dAUC | dAUC_lo | dAUC_hi | dSpearman | dSpearman_lo | dSpearman_hi | fire_rate | fired_accepted |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| _bench | deepreviewer-7b:fast | - | 189 | 0.663 | 0.337 | 0.922 | 0.582 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | deepreviewer-7b:fast | +gate_k1_m2 | 189 | 0.669 | 0.297 | 1.047 | 0.587 | 0.006 | -0.046 | 0.059 | -0.041 | -0.132 | 0.045 | 0.135 | 0.370 |
+| _bench | deepreviewer-7b:std | - | 55 | 0.505 | 0.197 | 0.958 | 0.455 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | deepreviewer-7b:std | +gate_k1_m2 | 55 | 0.594 | 0.254 | 1.025 | 0.527 | 0.089 | 0.012 | 0.181 | 0.056 | -0.053 | 0.206 | 0.035 | 0.143 |
+| _bench | openreviewer-8b | - | 200 | 0.729 | 0.450 | 0.989 | 0.650 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | qwen3-32b-awq:ais | - | 200 | 0.619 | 0.252 | 2.121 | 0.500 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | qwen3-32b-awq:ais | +gate_k1_m2 | 200 | 0.616 | 0.217 | 1.954 | 0.535 | -0.003 | -0.055 | 0.048 | -0.035 | -0.141 | 0.067 | 0.145 | 0.414 |
+| _bench | qwen3-32b-awq:s10 | - | 200 | 0.604 | 0.314 | 2.183 | 0.500 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | qwen3-32b-awq:s10 | +gate_k1_m2 | 200 | 0.605 | 0.260 | 2.012 | 0.520 | 0.001 | -0.053 | 0.057 | -0.054 | -0.169 | 0.061 | 0.145 | 0.414 |
+| _bench | qwen3-32b-awq:think+verify+grule+s10 | - | 200 | 0.562 | 0.150 | 1.134 | 0.505 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | qwen3-32b-awq:think+verify+s10 | - | 200 | 0.626 | 0.330 | 1.090 | 0.555 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench | qwen3-32b-awq:think+verify+s10 | +gate_k1_m2 | 200 | 0.604 | 0.273 | 1.125 | 0.565 | -0.022 | -0.067 | 0.024 | -0.058 | -0.147 | 0.025 | 0.145 | 0.414 |
+| _bench24 | deepreviewer-7b:fast | - | 192 | 0.616 | 0.232 | 0.861 | 0.557 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench24 | deepreviewer-7b:fast | +gate_k1_m2 | 192 | 0.608 | 0.187 | 1.017 | 0.557 | -0.008 | -0.057 | 0.039 | -0.045 | -0.111 | 0.017 | 0.115 | 0.478 |
+| _bench24 | openreviewer-8b | - | 200 | 0.652 | 0.332 | 0.970 | 0.575 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench24 | qwen3-32b-awq:ais | - | 200 | 0.638 | 0.222 | 2.040 | 0.510 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench24 | qwen3-32b-awq:ais | +gate_k1_m2 | 200 | 0.607 | 0.166 | 1.898 | 0.530 | -0.031 | -0.079 | 0.012 | -0.056 | -0.124 | 0.001 | 0.115 | 0.478 |
+| _bench24 | qwen3-32b-awq:s10 | - | 200 | 0.638 | 0.255 | 2.243 | 0.500 | nan | nan | nan | nan | nan | nan | nan | nan |
+| _bench24 | qwen3-32b-awq:s10 | +gate_k1_m2 | 200 | 0.608 | 0.191 | 2.068 | 0.520 | -0.030 | -0.075 | 0.011 | -0.064 | -0.136 | 0.000 | 0.115 | 0.478 |
+| _bench24 | qwen3-32b-awq:think+verify+grule+s10 | - | 200 | 0.525 | 0.046 | 1.012 | 0.505 | nan | nan | nan | nan | nan | nan | nan | nan |

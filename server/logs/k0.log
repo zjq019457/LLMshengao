@@ -569,3 +569,6 @@
 [23:38:29] extra GPU1: judge.py --judge qwen3-32b-awq (try 1)
 [23:45:34] extra exit 0 : judge.py --judge qwen3-32b-awq
 [01:24:15] extra stage done
+[08:15:49] quality GPU1: review.py --model openreviewer-8b:n16 --n 16 --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[08:18:50] quality GPU2: meta.py --data bench_dev25 --tag _dev (try 1)
+[08:22:15] quality GPU0: or n16 bench24 (try 1)

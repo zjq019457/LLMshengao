@@ -453,3 +453,5 @@
 [20:06:33] GPU1: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --audit qwen3-8b:think+audit (try 1)
 [20:14:21] extra exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
 [20:14:22] extra GPU0: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[20:26:57] extra exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[20:26:57] extra GPU0: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24 (try 1)

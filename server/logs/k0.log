@@ -455,3 +455,6 @@
 [20:14:22] extra GPU0: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
 [20:26:57] extra exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench
 [20:26:57] extra GPU0: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24 (try 1)
+[20:39:00] extra exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
+[20:39:01] extra GPU0: review.py --model openreviewer-8b --versions NF --allow-unchecked --data versions --tag  (try 1)
+[20:45:35] extra exit 0 : review.py --model openreviewer-8b --versions NF --allow-unchecked --data versions --tag 

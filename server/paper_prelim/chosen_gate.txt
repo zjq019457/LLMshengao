@@ -1,0 +1,9 @@
+_k1: mean dAUC +0.0184  mean dSpearman -0.0090  fire 0.107  -> OK
+CHOSEN _k1
+M3 _k1: dAUC +0.0184  dSpearman -0.0090  sum +0.0094
+M3 _k1_m2: dAUC +0.0220  dSpearman +0.0024  sum +0.0244
+M3 _k2: dAUC +0.0146  dSpearman -0.0068  sum +0.0079
+M3 _k2_m2: dAUC +0.0147  dSpearman -0.0054  sum +0.0093
+M3 _k3: dAUC +0.0000  dSpearman +0.0000  sum +0.0000
+M3 _k3_m2: dAUC +0.0000  dSpearman +0.0000  sum +0.0000
+M3 _k1_m2

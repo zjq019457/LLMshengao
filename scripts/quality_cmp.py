@@ -1,6 +1,8 @@
 """Quality push results: paired bootstrap of each system against OpenReviewer-8B (3 samples), per split.
 
   python quality_cmp.py   -> paper/tab_quality_push.md / .csv
+Primary test (pre-registered 2026-10-29, before any n16 / AC result existed): the paired difference against
+OpenReviewer-8B on the POOLED test set (bench_iclr25 + bench_iclr24, 400 papers); per-year rows are secondary.
 Nothing here is fit to data: systems are raw scores (mean over samples) or a fixed rule.
   avg3    unweighted mean of the z-scored OpenReviewer, DeepReviewer-fast and AI Scientist scores (z with each split's
           own statistics, which uses no labels)
@@ -17,7 +19,7 @@ REF = "openreviewer-8b"
 
 
 def main():
-    rows = []
+    rows, frames = [], {}
     for split, (tag, data) in SPLITS.items():
         gold = {r["paper_id"]: (np.mean(r["human_ratings"]), "ccept" in r["decision"])
                 for r in read_jsonl(f"{ROOT}/data/{data}.jsonl")}
@@ -34,6 +36,10 @@ def main():
             d["ais"] = scores(tag, "qwen3-32b-awq:ais")
         z = [(d[c] - d[c].mean()) / d[c].std() for c in parts]
         d["avg3"] = pd.concat(z, axis=1).mean(axis=1)
+        frames[split] = d
+    frames["pooled_test"] = pd.concat([frames["test25"].rename(index=lambda p: "25/" + p),
+                                       frames["test24"].rename(index=lambda p: "24/" + p)])
+    for split, d in frames.items():
         for s in SYSTEMS:
             if s not in d:
                 continue

@@ -458,3 +458,39 @@
 [20:39:00] extra exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
 [20:39:01] extra GPU0: review.py --model openreviewer-8b --versions NF --allow-unchecked --data versions --tag  (try 1)
 [20:45:35] extra exit 0 : review.py --model openreviewer-8b --versions NF --allow-unchecked --data versions --tag 
+[21:18:13] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 1 --audit qwen3-8b:think+audit
+[21:18:13] GPU0: gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 2 --audit qwen3-8b:think+audit (try 1)
+[21:18:14] exit 0 : gate.py --base deepreviewer-7b:fast --data bench_iclr25 --tag _bench --k 2 --audit qwen3-8b:think+audit
+[21:18:15] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --no-quote (try 1)
+[21:18:15] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --no-quote
+[21:18:16] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --no-reported (try 1)
+[21:18:16] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --no-reported
+[21:18:17] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --audit-samples 1 (try 1)
+[21:18:17] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --audit-samples 1
+[21:18:18] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b (try 1)
+[21:18:18] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --checker qwen3-8b
+[21:18:19] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --no-quote (try 1)
+[21:18:19] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --no-quote
+[21:18:20] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --no-reported (try 1)
+[21:18:21] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --no-reported
+[21:18:21] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --checker qwen3-8b (try 1)
+[21:18:22] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --checker qwen3-8b
+[21:18:22] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --audit qwen3-8b:think+audit (try 1)
+[21:18:23] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 1 --audit qwen3-8b:think+audit
+[21:18:23] GPU0: gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --audit qwen3-8b:think+audit (try 1)
+[21:18:24] exit 0 : gate.py --base qwen3-32b-awq:s10 --data bench_iclr25 --tag _bench --k 2 --audit qwen3-8b:think+audit
+[21:18:25] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --no-quote (try 1)
+[21:18:25] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --no-quote
+[21:18:26] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --no-reported (try 1)
+[21:18:26] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --no-reported
+[21:18:27] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --audit-samples 1 (try 1)
+[21:18:27] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --audit-samples 1
+[21:18:28] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --checker qwen3-8b (try 1)
+[21:18:28] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --checker qwen3-8b
+[21:18:29] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --no-quote (try 1)
+[21:18:29] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --no-quote
+[21:18:30] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --no-reported (try 1)
+[21:18:31] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --no-reported
+[21:18:31] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --checker qwen3-8b (try 1)
+[21:18:32] exit 0 : gate.py --base deepreviewer-7b:fast --data versions --tag  --k 2 --checker qwen3-8b
+[21:18:32] GPU0: gate.py --base deepreviewer-7b:fast --data versions --tag  --k 1 --audit qwen3-8b:think+audit (try 1)

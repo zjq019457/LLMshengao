@@ -583,3 +583,4 @@
 [10:37:28] quality exit 0 : review.py --model openreviewer-8b:n16 --n 16 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
 [10:41:12] quality stage done
 [10:44:20] quality stage done (with GPU0 test24)
+[17:10:33] k1n16 GPU1: review.py --model openreviewer-8b:n16 --n 16 --versions NF --allow-unchecked --data versions --tag  (try 1)

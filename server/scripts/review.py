@@ -180,8 +180,9 @@ def main(config, n, versions, allow_unchecked, data="versions", tag=""):
     opts = set(mode.split("+")) - {""}
     think = "think" in opts
     if model_key.startswith("deepreviewer"):
-        outs = llm.chat([r["text"] for r in rows], system=DR_SYSTEM[mode], temperature=0.4, n=n,
-                        max_tokens=8000 if mode == "std" else 3000)
+        dr_mode = mode.split("+")[0]  # "fast+n16" -> "fast" (n16 only names the output file)
+        outs = llm.chat([r["text"] for r in rows], system=DR_SYSTEM[dr_mode], temperature=0.4, n=n,
+                        max_tokens=8000 if dr_mode == "std" else 3000)
         parse = parse_deepreviewer
     elif model_key.startswith("openreviewer"):
         # the model card gives no sampling settings: T=0.7, top_p=0.95 as for our other non-thinking runs

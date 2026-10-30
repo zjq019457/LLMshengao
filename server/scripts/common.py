@@ -75,9 +75,10 @@ class LLM:
         sys_msg = [{"role": "system", "content": system}] if system else []
         texts = []
         for p in prompts:
+            # the template strips whitespace around message content, so render a marker and splice the prefill in
             t = self.tok.apply_chat_template(sys_msg + [{"role": "user", "content": p},
-                                                        {"role": "assistant", "content": prefill}], tokenize=False)
-            texts.append(t[:t.rindex(prefill) + len(prefill)])
+                                                        {"role": "assistant", "content": "PREFILL_MARKER"}], tokenize=False)
+            texts.append(t[:t.rindex("PREFILL_MARKER")] + prefill)
         sp = SamplingParams(temperature=temperature, top_p=0.95, n=n, max_tokens=max_tokens, seed=seed)
         outs = self.llm.generate(texts, sp)
         return [[prefill + c.text for c in o.outputs] for o in outs]

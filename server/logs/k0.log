@@ -612,3 +612,92 @@
 [20:35:41] iclr26 GPU2: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 5)
 [20:36:37] iclr26 exit 1 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
 [20:38:24] iclr26 GPU2: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[22:34:22] more exit 0 : review.py --model openreviewer-8b:n32 --n 32 --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
+[22:34:23] more stage done
+[22:35:04] iclr26 GPU1: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[22:35:20] extra GPU1: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[22:36:57] extra exit 1 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[23:23:54] k1n16 exit 0 : review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[23:23:57] k1n16 GPU2: review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_iclr24 --tag _bench24 (try 1)
+[23:24:09] extra GPU2: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 2)
+[23:25:00] extra exit 1 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[23:51:54] iclr26 exit 0 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[23:51:55] iclr26 GPU1: review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[23:52:04] extra GPU1: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[23:52:51] extra exit 1 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[00:56:56] iclr26 exit 0 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[00:56:56] iclr26 GPU2: review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[00:58:12] extra GPU2: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 2)
+[00:58:37] extra exit 1 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[01:05:38] extra GPU0: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 3)
+[01:35:59] iclr26 exit 0 : review.py --model openreviewer-8b --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[01:36:00] iclr26 GPU2: review.py --model openreviewer-8b:n16 --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 --n 16 (try 1)
+[02:03:37] extra exit 0 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[02:03:38] extra GPU0: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[02:58:12] extra exit 0 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr25 --tag _bench
+[02:58:12] extra GPU0: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24 (try 1)
+[03:24:14] iclr26 exit 0 : review.py --model openreviewer-8b:n16 --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 --n 16
+[03:33:17] k1n16 exit 0 : review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
+[03:36:34] k1n16 GPU2: judge.py --judge qwen3-32b-awq (try 1)
+[03:56:59] extra exit 0 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr24 --tag _bench24
+[03:56:59] extra GPU2: review.py --model cyclereviewer-8b --versions NF --allow-unchecked --data versions --tag  (try 1)
+[04:15:58] k1n16 exit 0 : judge.py --judge qwen3-32b-awq
+[04:16:41] iclr26 exit 0 : review.py --model qwen3-32b-awq:ais --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[04:16:41] iclr26 GPU1: review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[04:34:00] extra exit 0 : review.py --model cyclereviewer-8b --versions NF --allow-unchecked --data versions --tag 
+[04:34:00] extra GPU2: review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[05:20:12] extra exit 0 : review.py --model cyclereviewer-8b --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[05:20:12] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[05:21:40] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:26:41] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 2)
+[05:27:07] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:32:08] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 3)
+[05:32:32] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:37:33] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 4)
+[05:37:57] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:42:58] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 5)
+[05:43:21] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:48:21] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 6)
+[05:48:47] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:53:47] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 7)
+[05:54:12] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[05:59:12] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 8)
+[05:59:37] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:01:46] k1n16 stage done
+[06:04:37] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 9)
+[06:05:01] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:10:02] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 10)
+[06:10:28] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:15:28] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 11)
+[06:15:53] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:20:54] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 12)
+[06:21:20] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:26:20] extra GPU2: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 13)
+[06:26:47] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:28:39] iclr26 exit 0 : review.py --model qwen3-32b-awq:s10 --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[06:28:39] iclr26 GPU2: review.py --model qwen3-32b-awq:think+verify+s10 --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[06:31:47] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 14)
+[06:32:13] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:37:14] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 15)
+[06:37:40] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:42:40] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 16)
+[06:43:05] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:48:05] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 17)
+[06:48:31] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:53:32] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 18)
+[06:54:00] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[06:59:01] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 19)
+[06:59:28] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:04:28] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 20)
+[07:04:56] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:09:56] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 21)
+[07:10:21] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:15:22] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 22)
+[07:15:46] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:20:46] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 23)
+[07:21:09] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:26:09] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 24)
+[07:26:34] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:31:34] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 25)
+[07:32:00] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[07:36:48] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)

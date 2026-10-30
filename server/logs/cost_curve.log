@@ -1,0 +1,7 @@
+                            system  gen_tokens_per_paper       AUC  Spearman  K1_flawed_pass_rate
+0                  OpenReviewer n1            633.298984       NaN       NaN              0.71875
+1                  OpenReviewer n3           1899.896953  0.699000  0.409413              0.59375
+2                  OpenReviewer n8           5066.391875  0.706963  0.421158              0.71875
+3                 OpenReviewer n16          10132.783750  0.731000  0.446029              0.68750
+4                 OpenReviewer n32          20265.567500  0.736112  0.472867                  NaN
+5  OpenReviewer n16 + gate_k2 (M3)          14519.582500  0.739237  0.474313              0.12500

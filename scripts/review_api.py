@@ -82,9 +82,13 @@ def main(a):
         return list_models(a.provider)
     opts = set(a.cfg.split("+")) - {"base"}
     prefix = (VERIFY if "verify" in opts else "") + (RULE if "rule" in opts else "")
-    rows = [r for r in read_jsonl(a.versions) if r["version"] in "NF"]
+    rows = [r for r in read_jsonl(a.versions) if r["version"] in a.keep]
+    if a.limit:  # balanced subset: first `limit` accepted + first `limit` rejected papers (file order is random)
+        acc = [r for r in rows if "ccept" in r.get("decision", "")][:a.limit]
+        rows = acc + [r for r in rows if "ccept" not in r.get("decision", "")][:a.limit]
     tag = f"{a.provider}:{a.model}:{a.cfg}"
-    out_path = os.path.join(HERE, "out_api", f"reviews_{a.provider}_{a.model.replace('/', '-')}_{a.cfg}.jsonl")
+    out_dir = os.path.join(HERE, "out_api" + a.out_suffix)
+    out_path = os.path.join(out_dir, f"reviews_{a.provider}_{a.model.replace('/', '-')}_{a.cfg}.jsonl")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     prev = read_jsonl(out_path) if os.path.exists(out_path) else []
     done = {(r["paper_id"], r["version"], r["sample"]) for r in prev if not r.get("error")}  # errored calls are retried
@@ -136,6 +140,9 @@ if __name__ == "__main__":
     ap.add_argument("--max-usd", type=float, default=10.0)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--versions", default=os.path.join(HERE, "versions_k0c.jsonl"))
+    ap.add_argument("--keep", default="NF", help="versions to review: NF for K1 / K0c files, O for benchmark splits")
+    ap.add_argument("--limit", type=int, default=0, help="per-decision cap for benchmark splits (0 = all rows)")
+    ap.add_argument("--out-suffix", default="", help="output directory suffix, e.g. _k1 or _bench -> out_api_k1/")
     ap.add_argument("--list-models", action="store_true")
     a = ap.parse_args()
     if not a.list_models and (a.model is None or a.price_in is None or a.price_out is None):

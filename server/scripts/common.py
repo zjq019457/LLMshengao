@@ -10,6 +10,7 @@ MODELS = {
     "deepreviewer-7b": f"{ROOT}/models/DeepReviewer-7B",  # gated licence: research use, not official review
     "deepreviewer-14b": f"{ROOT}/models/DeepReviewer-14B",
     "openreviewer-8b": f"{ROOT}/models/Llama-OpenReviewer-8B",  # Llama 3.1 licence
+    "cyclereviewer-8b": f"{ROOT}/models/CycleReviewer-ML-Llama-3.1-8B",  # gated licence: research use, not official review
     "r1-llama-8b": "/diskF/jiaqizhang/models/DeepSeek-R1-Distill-Llama-8B",  # existing local copy, read-only
 }
 MAX_PAPER_CHARS = 90_000  # ~22k tokens; keeps prompt + 3k output under 32k
@@ -66,3 +67,17 @@ class LLM:
                             max_tokens=max_tokens, seed=seed)
         outs = self.llm.generate(texts, sp)
         return [[c.text for c in o.outputs] for o in outs]
+
+    def chat_prefill(self, prompts, prefill, temperature=0.7, n=1, max_tokens=3000, seed=0, system=None):
+        """Like chat, but the assistant turn starts with `prefill` (the template's end-of-turn tokens are cut, as
+        CycleReviewer's model card does with [:-4]); returned texts include the prefill."""
+        from vllm import SamplingParams
+        sys_msg = [{"role": "system", "content": system}] if system else []
+        texts = []
+        for p in prompts:
+            t = self.tok.apply_chat_template(sys_msg + [{"role": "user", "content": p},
+                                                        {"role": "assistant", "content": prefill}], tokenize=False)
+            texts.append(t[:t.rindex(prefill) + len(prefill)])
+        sp = SamplingParams(temperature=temperature, top_p=0.95, n=n, max_tokens=max_tokens, seed=seed)
+        outs = self.llm.generate(texts, sp)
+        return [[prefill + c.text for c in o.outputs] for o in outs]

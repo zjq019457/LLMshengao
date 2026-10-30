@@ -585,3 +585,4 @@
 [10:44:20] quality stage done (with GPU0 test24)
 [17:10:33] k1n16 GPU1: review.py --model openreviewer-8b:n16 --n 16 --versions NF --allow-unchecked --data versions --tag  (try 1)
 [17:14:33] k1n16 GPU2: review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[17:47:39] k1n16 exit 0 : review.py --model openreviewer-8b:n16 --n 16 --versions NF --allow-unchecked --data versions --tag 

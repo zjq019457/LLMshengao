@@ -712,3 +712,5 @@
 [08:59:28] four exit 1 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked --data versions_k2 --tag _k2
 [09:03:25] four GPU1: human_gap.py (try 2)
 [09:10:31] four GPU2: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked --data versions_k2 --tag _k2 (try 2)
+[09:33:21] four exit 0 : human_gap.py
+[09:43:44] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)

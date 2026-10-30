@@ -588,3 +588,9 @@
 [17:47:39] k1n16 exit 0 : review.py --model openreviewer-8b:n16 --n 16 --versions NF --allow-unchecked --data versions --tag 
 [18:06:30] more GPU1: real_flaw.py (try 1)
 [18:10:30] more GPU2: review.py --model openreviewer-8b:n32 --n 32 --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[20:03:38] k1n16 exit 0 : review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_dev25 --tag _dev
+[20:03:38] k1n16 GPU2: review.py --model deepreviewer-7b:fast+n16 --n 16 --versions O --allow-unchecked --data bench_iclr25 --tag _bench (try 1)
+[20:04:00] iclr26 GPU2: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[20:04:03] iclr26 GPU2: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)
+[20:04:30] iclr26 exit 1 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[20:04:56] iclr26 exit 1 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26

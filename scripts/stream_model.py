@@ -2,7 +2,7 @@
 download a file, upload it with sftp, check the size on the server, delete the local copy. Resumable: files already
 on the server with the right size are skipped. Uses the local Hugging Face login; no token is read or printed here.
 
-  python stream_model.py <repo id> <server model dir name> <local tmp dir>
+  python stream_model.py <repo id> <server model dir name> <local tmp dir> [server models root]
 """
 import os
 import shutil
@@ -19,8 +19,8 @@ def ssh(cmd):
     return subprocess.run(["ssh", HOST, cmd], capture_output=True, text=True, stdin=subprocess.DEVNULL, timeout=120).stdout.strip()
 
 
-def main(repo, name, tmp):
-    dst = f"/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models/{name}"
+def main(repo, name, tmp, root="/diskE/jiaqizhang/LLM_REVIEW_AUDIT_K0/models"):
+    dst = f"{root}/{name}"
     ssh(f"mkdir -p {dst}")
     info = HfApi().model_info(repo, files_metadata=True)
     files = [(s.rfilename, s.size) for s in info.siblings if s.rfilename.endswith(PATTERNS) and "/" not in s.rfilename]
@@ -43,4 +43,4 @@ def main(repo, name, tmp):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])

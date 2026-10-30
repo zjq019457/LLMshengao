@@ -47,15 +47,16 @@ def review_text(r):
     return json.dumps(rv, ensure_ascii=False, indent=1) if rv else r["raw"][-6000:]
 
 
-def main(judge_key):
+def main(judge_key, data="versions", tag=""):
+    out = f"{ROOT}/out{tag}"
     desc, variants = {}, {}
-    for v in read_jsonl(f"{ROOT}/data/versions.jsonl"):
+    for v in read_jsonl(f"{ROOT}/data/{data}.jsonl"):
         if v["version"] in "FR":
             desc.setdefault((v["paper_id"], v.get("variant")), {})[v["version"]] = v["description"]
             if v.get("variant"):
                 variants.setdefault(v["paper_id"], []).append(v["variant"])
     reviews = []
-    for r in (r for f in sorted(glob.glob(f"{ROOT}/out/reviews_*.jsonl")) for r in read_jsonl(f)):
+    for r in (r for f in sorted(glob.glob(f"{out}/reviews_*.jsonl")) for r in read_jsonl(f)):
         if r["version"] == "N" and r["paper_id"] in variants:
             # K1: an N review is judged once against each flaw variant of its paper (per-type false positives)
             reviews += [dict(r, variant=var) for var in variants[r["paper_id"]]]
@@ -66,7 +67,7 @@ def main(judge_key):
                              removed=get(r).get("R", ""),
                              review=review_text(r)) for r in reviews]
     # judgments are cached by prompt hash, so re-running after adding configs only judges new reviews
-    cache_path = f"{ROOT}/out/judge_cache_{judge_key}.jsonl"
+    cache_path = f"{ROOT}/out/judge_cache_{judge_key}.jsonl"  # shared: keyed by prompt hash
     cache = {c["h"]: c["raw"] for c in read_jsonl(cache_path)} if os.path.exists(cache_path) else {}
     hs = [hashlib.sha1(p.encode()).hexdigest() for p in prompts]
     todo = sorted({h: i for i, h in enumerate(hs) if h not in cache}.items(), key=lambda x: x[1])
@@ -83,11 +84,11 @@ def main(judge_key):
         r["judge"] = {k: j.get(k) for k in
                       ("detected_flaw", "flaw_quote", "flaw_severity", "flagged_missing", "asserts_protocol", "assert_quote")}
         r.pop("raw", None)
-    write_jsonl(f"{ROOT}/out/judged.jsonl", reviews)
+    write_jsonl(f"{out}/judged.jsonl", reviews)
 
     random.seed(0)
     sample = random.sample(reviews, min(30, len(reviews)))
-    with open(f"{ROOT}/out/judge_audit.csv", "w", newline="", encoding="utf-8") as f:
+    with open(f"{out}/judge_audit.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["paper_id", "version", "model", "sample", "judge_detected", "judge_missing",
                     "judge_asserts", "human_detected", "human_missing", "human_asserts"])
@@ -101,4 +102,7 @@ def main(judge_key):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--judge", default="qwen3-32b-awq")
-    main(ap.parse_args().judge)
+    ap.add_argument("--data", default="versions")
+    ap.add_argument("--tag", default="")
+    a = ap.parse_args()
+    main(a.judge, a.data, a.tag)

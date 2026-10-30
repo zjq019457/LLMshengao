@@ -595,3 +595,7 @@
 [20:04:30] iclr26 exit 1 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
 [20:04:56] iclr26 exit 1 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
 [20:16:08] more exit 0 : real_flaw.py
+[20:17:34] iclr26 GPU1: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 2)
+[20:18:00] iclr26 GPU1: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 2)
+[20:18:56] iclr26 exit 1 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[20:19:39] iclr26 exit 1 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26

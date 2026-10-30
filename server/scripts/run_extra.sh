@@ -48,6 +48,8 @@ for cfg in "${CFGS[@]}"; do
 done
 
 until grep -q "paper stage done" $R/logs/k0.log; do sleep 300; done
+# the ICLR 2026 gates need that split's audit and check cache (run_iclr26.sh)
+[ -s $R/data/bench_iclr26.jsonl ] && until grep -q "iclr26 stage done" $R/logs/k0.log; do sleep 300; done
 for cfg in "${CFGS[@]}"; do
   for s in "${SPLITS[@]}"; do
     set -- $s; [ $# -eq 2 ] && set -- "" "$@"

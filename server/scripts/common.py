@@ -11,6 +11,9 @@ MODELS = {
     "deepreviewer-14b": f"{ROOT}/models/DeepReviewer-14B",
     "openreviewer-8b": f"{ROOT}/models/Llama-OpenReviewer-8B",  # Llama 3.1 licence
     "cyclereviewer-8b": f"{ROOT}/models/CycleReviewer-ML-Llama-3.1-8B",  # gated licence: research use, not official review
+    # base models of the fine-tuned reviewers (controls for "does review fine-tuning change detection"); /diskE is full
+    "llama31-8b-instruct": "/diskF/jiaqizhang/models/Llama-3.1-8B-Instruct",  # base of OpenReviewer / CycleReviewer
+    "qwen25-7b-instruct": "/diskF/jiaqizhang/models/Qwen2.5-7B-Instruct",  # base of DeepReviewer-7B
     "r1-llama-8b": "/diskF/jiaqizhang/models/DeepSeek-R1-Distill-Llama-8B",  # existing local copy, read-only
 }
 MAX_PAPER_CHARS = 90_000  # ~22k tokens; keeps prompt + 3k output under 32k

@@ -701,3 +701,7 @@
 [07:31:34] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 25)
 [07:32:00] extra exit 1 : review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev
 [07:36:48] extra GPU1: review.py --model deepreviewer-14b:fast --versions O --allow-unchecked --data bench_dev25 --tag _dev (try 1)
+[08:15:14] four GPU0: make_versions.py k2 --model qwen3-32b-awq (try 1)
+[08:19:14] four GPU2: human_gap.py (try 1)
+[08:21:39] four exit 143 : make_versions.py k2 --model qwen3-32b-awq
+[08:23:46] four GPU2: make_versions.py k2 --model qwen3-32b-awq (try 1)

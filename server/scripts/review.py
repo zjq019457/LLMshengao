@@ -198,18 +198,19 @@ def main(config, n, versions, allow_unchecked, data="versions", tag=""):
     llm = LLM(model_key)
     opts = set(mode.split("+")) - {""}
     think = "think" in opts
-    if model_key.startswith("deepreviewer"):
+    # base-model controls run with a fine-tuned reviewer's exact prompt: <base>:fast+drfmt, <base>:orfmt, <base>:crfmt
+    if model_key.startswith("deepreviewer") or "drfmt" in opts:
         dr_mode = mode.split("+")[0]  # "fast+n16" -> "fast" (n16 only names the output file)
         outs = llm.chat([r["text"] for r in rows], system=DR_SYSTEM[dr_mode], temperature=0.4, n=n,
                         max_tokens=8000 if dr_mode == "std" else 3000)
         parse = parse_deepreviewer
-    elif model_key.startswith("openreviewer"):
+    elif model_key.startswith("openreviewer") or "orfmt" in opts:
         # the model card gives no sampling settings: T=0.7, top_p=0.95 as for our other non-thinking runs
         outs = llm.chat([OR_USER.format(paper_text=r["text"]) for r in rows],
                         system=OR_SYSTEM_TEMPLATE.format(review_fields=OR_FIELDS_ICLR25), temperature=0.7, n=n,
                         max_tokens=3000)
         parse = parse_openreviewer
-    elif model_key.startswith("cyclereviewer"):
+    elif model_key.startswith("cyclereviewer") or "crfmt" in opts:
         outs = llm.chat_prefill([cr_process_text(r["text"]) for r in rows], "\n\n## Reviewer\n", system=CR_SYSTEM,
                                 temperature=0.4, n=n, max_tokens=4096)
         parse = parse_cyclereviewer

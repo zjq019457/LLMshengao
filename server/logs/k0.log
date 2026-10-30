@@ -705,3 +705,8 @@
 [08:19:14] four GPU2: human_gap.py (try 1)
 [08:21:39] four exit 143 : make_versions.py k2 --model qwen3-32b-awq
 [08:23:46] four GPU2: make_versions.py k2 --model qwen3-32b-awq (try 1)
+[08:57:20] four exit 0 : make_versions.py k2 --model qwen3-32b-awq
+[08:57:21] four GPU2: review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked --data versions_k2 --tag _k2 (try 1)
+[08:57:55] four GPU2: human_gap.py (try 1)
+[08:58:24] four exit 1 : human_gap.py
+[08:59:28] four exit 1 : review.py --model qwen3-32b-awq:think+audit --versions NF --allow-unchecked --data versions_k2 --tag _k2

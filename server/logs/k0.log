@@ -611,3 +611,4 @@
 [20:34:00] iclr26 exit 1 : review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
 [20:35:41] iclr26 GPU2: review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 5)
 [20:36:37] iclr26 exit 1 : review.py --model deepreviewer-7b:fast --versions O --allow-unchecked --data bench_iclr26 --tag _bench26
+[20:38:24] iclr26 GPU2: review.py --model qwen3-32b-awq:think+audit --versions O --allow-unchecked --data bench_iclr26 --tag _bench26 (try 1)

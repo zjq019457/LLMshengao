@@ -8,8 +8,9 @@ NEED_MIB=${NEED_MIB:-34000}
 
 freest_gpu() {
   while :; do
-    line=$(nvidia-smi --query-gpu=index,memory.free --format=csv,noheader,nounits | sort -t, -k2 -nr | head -1)
-    [ "${line#*, }" -ge "$NEED_MIB" ] && { echo "${line%%,*}"; return; }
+    # GPUs listed in $R/SKIP_GPUS (e.g. "0" or "0|2") are left to other users
+    line=$(nvidia-smi --query-gpu=index,memory.free --format=csv,noheader,nounits | grep -vE "^($(cat $R/SKIP_GPUS 2>/dev/null || echo none))," | sort -t, -k2 -nr | head -1)
+    [ -n "$line" ] && [ "${line#*, }" -ge "$NEED_MIB" ] && { echo "${line%%,*}"; return; }
     sleep 120
   done
 }

@@ -11,9 +11,11 @@ import argparse
 import csv
 import re
 
+import numpy as np
+
 from ais_prompts import AIS_FORM, AIS_SYSTEM
 from common import LLM, ROOT, extract_json, read_jsonl, write_jsonl
-from or_prompts import OR_FIELDS_ICLR25, OR_SYSTEM_TEMPLATE, OR_USER
+from or_prompts import CR_SYSTEM, OR_FIELDS_ICLR25, OR_SYSTEM_TEMPLATE, OR_USER, cr_process_text
 
 FORM = """You are an expert reviewer for ACL Rolling Review (ARR). Review the anonymous submission below.
 
@@ -158,6 +160,23 @@ def parse_openreviewer(raw):
             "overall_assessment": rating, "overall_confidence": None, "decision": None, "scale": "iclr10"}
 
 
+def parse_cyclereviewer(raw):
+    """CycleReviewer output: 4 '## Reviewer' blocks (### Rating 'k: label'), a meta review and '## Paper Decision'.
+    Score = mean of the reviewer ratings (as the CycleResearcher paper does); weaknesses = all reviewers'."""
+    blocks = [b for b in re.split(r"\n## Reviewer\b", "\n" + raw)[1:]]
+    ratings = [int(m.group(1)) for b in blocks for m in [re.search(r"### Rating\s*\n+\s*(\d+)", b)] if m]
+    if not ratings:
+        return None
+    sec = lambda b, name: (re.search(rf"### {name}\s*\n(.*?)(?=\n### |\n\*{{3,}}|\Z)", b, flags=re.S) or [None, ""])[1].strip()
+    weak = [{"issue": w} for b in blocks for w in [sec(b, "Weaknesses")] if w]
+    snd = [int(m.group(1)) for b in blocks for m in [re.search(r"### Soundness\s*\n+\s*(\d+)", b)] if m]
+    dec = re.search(r"## Paper Decision\s*\n\s*(\S.*)", raw)
+    return {"summary": sec(blocks[0], "Summary"), "weaknesses": weak,
+            "soundness": {"score": float(np.mean(snd)) if snd else None, "confidence": None, "cannot_assess": False},
+            "overall_assessment": float(np.mean(ratings)), "overall_confidence": None,
+            "decision": dec.group(1).strip() if dec else None, "scale": "iclr10"}
+
+
 def approved_versions():
     """(paper, version) pairs to review: each valid F or R, plus N/O for any paper with a valid F or R
     (H1 uses the F-valid papers, H3 the R-valid ones)."""
@@ -190,6 +209,10 @@ def main(config, n, versions, allow_unchecked, data="versions", tag=""):
                         system=OR_SYSTEM_TEMPLATE.format(review_fields=OR_FIELDS_ICLR25), temperature=0.7, n=n,
                         max_tokens=3000)
         parse = parse_openreviewer
+    elif model_key.startswith("cyclereviewer"):
+        outs = llm.chat_prefill([cr_process_text(r["text"]) for r in rows], "\n\n## Reviewer\n", system=CR_SYSTEM,
+                                temperature=0.4, n=n, max_tokens=4096)
+        parse = parse_cyclereviewer
     elif "ais" in opts:
         # AI Scientist reviewer: its own system prompt and NeurIPS form, T=0.75, single review,
         # no few-shot examples and no reflection rounds (the repo defaults are 1 example, 1 reflection)

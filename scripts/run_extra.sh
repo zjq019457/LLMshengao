@@ -8,7 +8,8 @@ PY=$R/.venv/bin/python
 cd $R/scripts
 NEED_MIB=${NEED_MIB:-34000}
 CFGS=("$@")
-declare -A DIR=([openreviewer-8b]=Llama-OpenReviewer-8B [deepreviewer-14b:fast]=DeepReviewer-14B)
+declare -A DIR=([openreviewer-8b]=Llama-OpenReviewer-8B [deepreviewer-14b:fast]=DeepReviewer-14B
+                [cyclereviewer-8b]=CycleReviewer-ML-Llama-3.1-8B)
 
 freest_gpu() {
   while :; do
@@ -34,6 +35,8 @@ run() {  # run <log> <args...>: retries while the engine cannot get its memory (
 
 VAR=("--k 1" "--k 2" "--k 3" "--k 1 --mode minus" "--k 2 --mode minus" "--k 3 --mode minus")
 SPLITS=("_dev bench_dev25 O" "_bench bench_iclr25 O" "_bench24 bench_iclr24 O" " versions NF")
+# the clean ICLR 2026 split, once it has been uploaded and its audit exists (run_iclr26.sh)
+[ -s $R/data/bench_iclr26.jsonl ] && SPLITS+=("_bench26 bench_iclr26 O")
 
 for cfg in "${CFGS[@]}"; do
   until [ -f $R/models/${DIR[$cfg]}/UPLOAD_COMPLETE ]; do sleep 300; done
@@ -53,9 +56,10 @@ for cfg in "${CFGS[@]}"; do
     done
   done
 done
-for s in "_dev bench_dev25" "_bench bench_iclr25" "_bench24 bench_iclr24"; do
-  set -- $s; $PY bench_eval.py --tag $1 --data $2 > $R/logs/eval$1.log 2>&1
+for s in "_dev bench_dev25" "_bench bench_iclr25" "_bench24 bench_iclr24" "_bench26 bench_iclr26"; do
+  set -- $s; [ -s $R/data/$2.jsonl ] && $PY bench_eval.py --tag $1 --data $2 > $R/logs/eval$1.log 2>&1
 done
+[ -s $R/data/bench_iclr26.jsonl ] && $PY cmp26.py > $R/logs/cmp26.log 2>&1
 (export NEED_MIB=28000; K0_GPU_MEM=0.33 run judge_extra judge.py --judge qwen3-32b-awq)
 $PY analyze.py > $R/out/k0_result.txt 2>&1
 $PY paper_tables.py > $R/logs/paper_tables.log 2>&1
